@@ -22,7 +22,7 @@ public partial class TourViewModel : ObservableObject
     [ObservableProperty] private bool autoLoadSamples = true;
     [ObservableProperty] private bool autoGenerateBilingualPreview = true;
     [ObservableProperty] private int customBubbleMaxChars = 55;
-    [ObservableProperty] private string tourStatusMessage = "Responda às etapas para montar seu fluxo ou acesse qualquer módulo na barra lateral.";
+    [ObservableProperty] private string tourStatusMessage = "Responda às etapas ou escolha um workspace na lateral.";
 
     public bool IsStage0Intro => CurrentStage == 0;
     public bool IsStage1Intent => CurrentStage == 1;
@@ -33,14 +33,15 @@ public partial class TourViewModel : ObservableObject
     public bool CanGoBack => CurrentStage > 0;
     public bool CanGoNext => CurrentStage < 4;
     public int WizardProgressPercent => CurrentStage * 25;
+    public string StageCodeLabel => $"0{CurrentStage} / 04";
 
     public string StageStepLabel => CurrentStage switch
     {
-        0 => "INÍCIO • ASSISTENTE DE EXPERIÊNCIA",
-        1 => "ETAPA 1 DE 3 • QUAL É O SEU OBJETIVO?",
-        2 => "ETAPA 2 DE 3 • UNIVERSO & GLOSSÁRIO",
-        3 => "ETAPA 3 DE 3 • ESTILO E PROFUNDIDADE",
-        _ => "FLUXO MONTADO • PRONTO PARA EXECUTAR"
+        0 => "Configuração inicial",
+        1 => "Objetivo principal",
+        2 => "Universo e glossário",
+        3 => "Preferências e escopo",
+        _ => "Fluxo pronto"
     };
 
     public bool IsPlayerIntent => string.Equals(SelectedIntent, "player", StringComparison.OrdinalIgnoreCase);
@@ -76,21 +77,10 @@ public partial class TourViewModel : ObservableObject
     public bool IsNode3Active => HasPickedStyle || CurrentStage >= 4;
     public bool IsNode4Active => CurrentStage >= 4 || (IsNode1Active && IsNode2Active && IsNode3Active);
 
-    public string PipelineNode1Text => IsNode1Active
-        ? ShortIntentLabel
-        : "1. Intenção (aguardando)";
-
-    public string PipelineNode2Text => IsNode2Active
-        ? SelectedGame.DisplayName
-        : "2. Universo (aguardando)";
-
-    public string PipelineNode3Text => IsNode3Active
-        ? StyleSummaryLabel
-        : "3. Estilo (aguardando)";
-
-    public string PipelineNode4Text => IsNode4Active
-        ? RecommendedModuleName
-        : "4. Módulo Alvo";
+    public string PipelineNode1Text => IsNode1Active ? ShortIntentLabel : "Objetivo";
+    public string PipelineNode2Text => IsNode2Active ? SelectedGame.DisplayName : "Universo";
+    public string PipelineNode3Text => IsNode3Active ? StyleSummaryLabel : "Preferências";
+    public string PipelineNode4Text => IsNode4Active ? RecommendedModuleName : "Workspace";
 
     private string ShortIntentLabel => SelectedIntent.ToLowerInvariant() switch
     {
@@ -103,23 +93,23 @@ public partial class TourViewModel : ObservableObject
     private string ExperienceLevelLabel => IsAdvancedLevel ? "Avançado" : "Guiado";
 
     private string StyleSummaryLabel => IsManhuaIntent
-        ? $"{ExperienceLevelLabel} • {Math.Max(15, CustomBubbleMaxChars)}ch"
+        ? $"{ExperienceLevelLabel} · {Math.Max(15, CustomBubbleMaxChars)}ch"
         : $"{ExperienceLevelLabel}{(AutoLoadSamples ? " + Exemplos" : "")}";
 
     public string InferredPersonaBadge => SelectedIntent.ToLowerInvariant() switch
     {
-        "cat" => "Perfil: Modder & Tradutor CAT",
-        "manhua" => "Perfil: Scanlator / Typesetter Manhua",
-        "webnovel" => "Perfil: Tradutor de Webnovels & Lore",
-        _ => "Perfil: Jogador In-Game (1-Click)"
+        "cat" => "Modder & Studio CAT",
+        "manhua" => "Scanlation Manhua",
+        "webnovel" => "Webnovels & Lore",
+        _ => "In-Game 1-Click"
     };
 
     public string RecommendedModuleName => SelectedIntent.ToLowerInvariant() switch
     {
-        "cat" => "Módulo 2 • Studio CAT (Jogos)",
-        "manhua" => "Módulo 3 • Novels & Mangás (Aba Manhua)",
-        "webnovel" => "Módulo 3 • Novels & Mangás (Aba Webnovel)",
-        _ => "Módulo 1 • In-Game Translate"
+        "cat" => "Studio CAT",
+        "manhua" => "Novels & Mangás · Manhua",
+        "webnovel" => "Novels & Mangás · Webnovel",
+        _ => "In-Game Bridge"
     };
 
     public string InferredExperienceDescription
@@ -138,12 +128,12 @@ public partial class TourViewModel : ObservableObject
                 "cat" => $"Abrirá o Studio Workbench (CAT) configurado para {SelectedGame.DisplayName} ({SelectedGame.Engine}), com trava de variáveis {{PlayerName}}/{{0}} e validação terminológica. {modeNote} {sampleNote}",
                 "manhua" => $"Abrirá o módulo de Materiais na aba Mangá/Manhua com orçamento padrão de {Math.Max(15, CustomBubbleMaxChars)} caracteres por balão, glossário de {SelectedGame.DisplayName} e roteiro para typesetters. {modeNote} {sampleNote}",
                 "webnovel" => $"Abrirá o módulo de Materiais na aba Webnovel com divisor de capítulos em chinês, glossário Xianxia/Wuxia ({SelectedGame.DisplayName}) e exportação bilíngue ZH + PT-BR. {modeNote} {sampleNote}",
-                _ => $"Abrirá o Player Launcher configurado para {SelectedGame.DisplayName} (AppID {SelectedGame.SteamAppId}, loader {SelectedGame.Loader.Type}), pronto para detecção na Steam, Bridge loopback e cache L0/L1 em modo debug (sem exigir licença). {modeNote}"
+                _ => $"Abrirá o In-Game Bridge configurado para {SelectedGame.DisplayName} (AppID {SelectedGame.SteamAppId}, loader {SelectedGame.Loader.Type}), pronto para detecção na Steam, Bridge loopback e cache L0/L1 em modo debug. {modeNote}"
             };
         }
     }
 
-    public string PrimaryActionButtonText => $"Iniciar em {RecommendedModuleName}";
+    public string PrimaryActionButtonText => $"Abrir {RecommendedModuleName}";
 
     public event Action<ObservableObject>? NavigateToModuleRequested;
 
@@ -198,6 +188,7 @@ public partial class TourViewModel : ObservableObject
         OnPropertyChanged(nameof(CanGoBack));
         OnPropertyChanged(nameof(CanGoNext));
         OnPropertyChanged(nameof(WizardProgressPercent));
+        OnPropertyChanged(nameof(StageCodeLabel));
         OnPropertyChanged(nameof(StageStepLabel));
         OnPropertyChanged(nameof(Question2Title));
         OnPropertyChanged(nameof(Question2Subtitle));
@@ -351,6 +342,6 @@ public partial class TourViewModel : ObservableObject
         AutoLoadSamples = true;
         AutoGenerateBilingualPreview = true;
         CustomBubbleMaxChars = 55;
-        TourStatusMessage = "Preferências do tour restauradas para o início do fluxo.";
+        TourStatusMessage = "Fluxo reiniciado para a configuração inicial.";
     }
 }

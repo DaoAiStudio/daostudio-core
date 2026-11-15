@@ -42,6 +42,10 @@ public partial class WorkbenchViewModel : ObservableObject
     public double ProgressPercent => Segments.Count == 0 ? 0 : 100d * ApprovedCount / Segments.Count;
     public string Progress => $"{ApprovedCount} de {Segments.Count} aprovados";
 
+    public bool IsAllFilter => StatusFilter == "Todos";
+    public bool IsPendingFilter => StatusFilter == "Pendentes";
+    public bool IsApprovedFilter => StatusFilter == "Aprovados";
+
     public WorkbenchViewModel(IEnumerable<ILocalizationFileParser> parsers, IGlossaryMatcher glossary, ITagMasker masker,
         IStringNormalizer normalizer, ITemplateHashCalculator hasher, ITranslationCache cache, DesktopResources resources)
     {
@@ -68,7 +72,13 @@ public partial class WorkbenchViewModel : ObservableObject
     }
 
     partial void OnSearchQueryChanged(string value) => RefreshFilteredSegments();
-    partial void OnStatusFilterChanged(string value) => RefreshFilteredSegments();
+    partial void OnStatusFilterChanged(string value)
+    {
+        OnPropertyChanged(nameof(IsAllFilter));
+        OnPropertyChanged(nameof(IsPendingFilter));
+        OnPropertyChanged(nameof(IsApprovedFilter));
+        RefreshFilteredSegments();
+    }
 
     partial void OnSelectedSegmentChanged(LocalizationSegment? value)
     {

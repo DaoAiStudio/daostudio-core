@@ -47,6 +47,8 @@ public partial class LauncherViewModel : ObservableObject
         ? "Aguardando detecção"
         : (PatchApplied ? "Detectado • Patch Ativo" : "Detectado • Original");
 
+    public string PatchStatusText => PatchApplied ? "Patch ativo" : "Original";
+
     public string CurrentStepHint =>
         DetectedGame is null ? $"Passo 1 de 2: Clique em 'Detectar na Steam' para localizar {SelectedGame.DisplayName} (ou clique em 'Iniciar Bridge' direto)."
         : !bridge.IsRunning ? "Passo 2 de 2: Clique em 'Iniciar Bridge' para traduzir em tempo real (ou aplique o patch)."
@@ -92,6 +94,7 @@ public partial class LauncherViewModel : ObservableObject
         OnPropertyChanged(nameof(GameMetadataSummary));
         OnPropertyChanged(nameof(ExecAndLoaderSummary));
         OnPropertyChanged(nameof(DetectionStatusBadge));
+        OnPropertyChanged(nameof(PatchStatusText));
         OnPropertyChanged(nameof(CurrentStepHint));
     }
 

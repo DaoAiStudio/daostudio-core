@@ -6,125 +6,213 @@
   </Application.Resources>
   <Application.Styles>
     <FluentTheme />
+
+    <!-- Base Window & Typography -->
     <Style Selector="Window">
-      <Setter Property="Background" Value="#09090B"/>
-      <Setter Property="Foreground" Value="#F4F4F5"/>
-      <Setter Property="FontFamily" Value="Segoe UI"/>
-    </Style>
-    <Style Selector="TextBlock.secondary">
-      <Setter Property="Foreground" Value="#A1A1AA"/>
+      <Setter Property="Background" Value="#070709"/>
+      <Setter Property="Foreground" Value="#F4F4F6"/>
+      <Setter Property="FontFamily" Value="Segoe UI, Inter, sans-serif"/>
     </Style>
     <Style Selector="TextBlock.title">
-      <Setter Property="FontSize" Value="26"/>
+      <Setter Property="FontSize" Value="20"/>
       <Setter Property="FontWeight" Value="SemiBold"/>
+      <Setter Property="Foreground" Value="#F4F4F6"/>
     </Style>
     <Style Selector="TextBlock.section">
-      <Setter Property="FontSize" Value="16"/>
+      <Setter Property="FontSize" Value="13.5"/>
       <Setter Property="FontWeight" Value="SemiBold"/>
-      <Setter Property="Foreground" Value="#F4F4F5"/>
+      <Setter Property="Foreground" Value="#EAEAEF"/>
+    </Style>
+    <Style Selector="TextBlock.secondary">
+      <Setter Property="Foreground" Value="#8E8E9E"/>
     </Style>
     <Style Selector="TextBlock.caption">
-      <Setter Property="FontSize" Value="11"/>
+      <Setter Property="FontSize" Value="10.5"/>
       <Setter Property="FontWeight" Value="SemiBold"/>
-      <Setter Property="Foreground" Value="#71717A"/>
-      <Setter Property="LetterSpacing" Value="0.8"/>
+      <Setter Property="Foreground" Value="#5C5C6E"/>
+      <Setter Property="LetterSpacing" Value="1.0"/>
     </Style>
+    <Style Selector="TextBlock.mono">
+      <Setter Property="FontFamily" Value="Cascadia Mono, Consolas, monospace"/>
+      <Setter Property="FontSize" Value="11.5"/>
+      <Setter Property="Foreground" Value="#9494A6"/>
+    </Style>
+
+    <!-- Obsidian Surfaces & Status Containers -->
     <Style Selector="Border.panel">
-      <Setter Property="Background" Value="#18181B"/>
-      <Setter Property="BorderBrush" Value="#27272A"/>
+      <Setter Property="Background" Value="#0C0C10"/>
+      <Setter Property="BorderBrush" Value="#191922"/>
       <Setter Property="BorderThickness" Value="1"/>
       <Setter Property="Padding" Value="18"/>
       <Setter Property="CornerRadius" Value="10"/>
     </Style>
     <Style Selector="Border.metric">
-      <Setter Property="Background" Value="#111114"/>
-      <Setter Property="BorderBrush" Value="#27272A"/>
+      <Setter Property="Background" Value="#09090D"/>
+      <Setter Property="BorderBrush" Value="#171720"/>
       <Setter Property="BorderThickness" Value="1"/>
       <Setter Property="Padding" Value="12,10"/>
       <Setter Property="CornerRadius" Value="8"/>
     </Style>
     <Style Selector="Border.badge">
-      <Setter Property="Background" Value="#064E3B"/>
-      <Setter Property="BorderBrush" Value="#059669"/>
+      <Setter Property="Background" Value="#1410B981"/>
+      <Setter Property="BorderBrush" Value="#3810B981"/>
       <Setter Property="BorderThickness" Value="1"/>
-      <Setter Property="Padding" Value="10,4"/>
+      <Setter Property="Padding" Value="9,3"/>
+      <Setter Property="CornerRadius" Value="999"/>
+    </Style>
+    <Style Selector="Border.badgeNeutral">
+      <Setter Property="Background" Value="#12121A"/>
+      <Setter Property="BorderBrush" Value="#20202C"/>
+      <Setter Property="BorderThickness" Value="1"/>
+      <Setter Property="Padding" Value="8,3"/>
       <Setter Property="CornerRadius" Value="6"/>
     </Style>
     <Style Selector="Border.banner">
-      <Setter Property="Background" Value="#0C1F1A"/>
-      <Setter Property="BorderBrush" Value="#065F46"/>
+      <Setter Property="Background" Value="#0B1311"/>
+      <Setter Property="BorderBrush" Value="#19382E"/>
       <Setter Property="BorderThickness" Value="1"/>
       <Setter Property="Padding" Value="14,10"/>
       <Setter Property="CornerRadius" Value="8"/>
     </Style>
     <Style Selector="Border.alertError">
-      <Setter Property="Background" Value="#2A1215"/>
-      <Setter Property="BorderBrush" Value="#7F1D1D"/>
+      <Setter Property="Background" Value="#180C0E"/>
+      <Setter Property="BorderBrush" Value="#4C1D24"/>
       <Setter Property="BorderThickness" Value="1"/>
-      <Setter Property="Padding" Value="12,8"/>
+      <Setter Property="Padding" Value="12,9"/>
       <Setter Property="CornerRadius" Value="8"/>
     </Style>
+    <Style Selector="Border.segmentedBar">
+      <Setter Property="Background" Value="#09090D"/>
+      <Setter Property="BorderBrush" Value="#181822"/>
+      <Setter Property="BorderThickness" Value="1"/>
+      <Setter Property="Padding" Value="3"/>
+      <Setter Property="CornerRadius" Value="8"/>
+    </Style>
+    <Style Selector="Border.statusDotPending">
+      <Setter Property="Width" Value="7"/>
+      <Setter Property="Height" Value="7"/>
+      <Setter Property="CornerRadius" Value="99"/>
+      <Setter Property="Background" Value="#3A3A48"/>
+    </Style>
+    <Style Selector="Border.statusDotApproved">
+      <Setter Property="Width" Value="7"/>
+      <Setter Property="Height" Value="7"/>
+      <Setter Property="CornerRadius" Value="99"/>
+      <Setter Property="Background" Value="#10B981"/>
+    </Style>
+
+    <!-- Buttons & Inputs -->
     <Style Selector="Button">
-      <Setter Property="Padding" Value="14,9"/>
+      <Setter Property="Background" Value="#13131A"/>
+      <Setter Property="BorderBrush" Value="#22222E"/>
+      <Setter Property="BorderThickness" Value="1"/>
+      <Setter Property="Foreground" Value="#E4E4EB"/>
+      <Setter Property="FontSize" Value="12.5"/>
+      <Setter Property="Padding" Value="13,7"/>
       <Setter Property="CornerRadius" Value="7"/>
-      <Setter Property="Background" Value="#27272A"/>
-      <Setter Property="Foreground" Value="#F4F4F5"/>
+    </Style>
+    <Style Selector="Button:pointerover">
+      <Setter Property="Background" Value="#191923"/>
+      <Setter Property="BorderBrush" Value="#2E2E3E"/>
     </Style>
     <Style Selector="Button.primary">
       <Setter Property="Background" Value="#10B981"/>
-      <Setter Property="Foreground" Value="#052E16"/>
+      <Setter Property="BorderBrush" Value="#34D399"/>
+      <Setter Property="BorderThickness" Value="1"/>
+      <Setter Property="Foreground" Value="#03150E"/>
       <Setter Property="FontWeight" Value="SemiBold"/>
+      <Setter Property="FontSize" Value="12.5"/>
+      <Setter Property="Padding" Value="15,7"/>
+      <Setter Property="CornerRadius" Value="7"/>
+    </Style>
+    <Style Selector="Button.primary:pointerover">
+      <Setter Property="Background" Value="#34D399"/>
+      <Setter Property="BorderBrush" Value="#6EE7B7"/>
     </Style>
     <Style Selector="Button.nav">
-      <Setter Property="Background" Value="#27272A"/>
-      <Setter Property="HorizontalContentAlignment" Value="Left"/>
-      <Setter Property="Padding" Value="12,10"/>
+      <Setter Property="Background" Value="Transparent"/>
+      <Setter Property="BorderBrush" Value="Transparent"/>
+      <Setter Property="BorderThickness" Value="1"/>
+      <Setter Property="Foreground" Value="#8E8E9E"/>
+      <Setter Property="HorizontalContentAlignment" Value="Stretch"/>
+      <Setter Property="Padding" Value="10,8"/>
+      <Setter Property="CornerRadius" Value="7"/>
+    </Style>
+    <Style Selector="Button.nav:pointerover">
+      <Setter Property="Background" Value="#101017"/>
+      <Setter Property="BorderBrush" Value="#191924"/>
+      <Setter Property="Foreground" Value="#EAEAEF"/>
     </Style>
     <Style Selector="Button.navActive">
-      <Setter Property="Background" Value="#065F46"/>
-      <Setter Property="BorderBrush" Value="#10B981"/>
+      <Setter Property="Background" Value="#13131C"/>
+      <Setter Property="BorderBrush" Value="#232332"/>
       <Setter Property="BorderThickness" Value="1"/>
-      <Setter Property="Foreground" Value="#ECFDF5"/>
-      <Setter Property="FontWeight" Value="SemiBold"/>
-      <Setter Property="HorizontalContentAlignment" Value="Left"/>
-      <Setter Property="Padding" Value="12,10"/>
+      <Setter Property="Foreground" Value="#F4F4F6"/>
+      <Setter Property="HorizontalContentAlignment" Value="Stretch"/>
+      <Setter Property="Padding" Value="10,8"/>
+      <Setter Property="CornerRadius" Value="7"/>
     </Style>
     <Style Selector="Button.chip">
-      <Setter Property="Padding" Value="8,4"/>
-      <Setter Property="FontSize" Value="12"/>
-      <Setter Property="Background" Value="#1F2937"/>
-      <Setter Property="BorderBrush" Value="#374151"/>
+      <Setter Property="Background" Value="#0F0F15"/>
+      <Setter Property="BorderBrush" Value="#1E1E2A"/>
       <Setter Property="BorderThickness" Value="1"/>
-      <Setter Property="Foreground" Value="#6EE7B7"/>
+      <Setter Property="Foreground" Value="#9494A6"/>
+      <Setter Property="FontSize" Value="11.5"/>
+      <Setter Property="Padding" Value="9,4"/>
+      <Setter Property="CornerRadius" Value="6"/>
+    </Style>
+    <Style Selector="Button.chip:pointerover">
+      <Setter Property="Background" Value="#14141D"/>
+      <Setter Property="BorderBrush" Value="#2E2E40"/>
+      <Setter Property="Foreground" Value="#EAEAEF"/>
+    </Style>
+    <Style Selector="Button.chipActive">
+      <Setter Property="Background" Value="#1410B981"/>
+      <Setter Property="BorderBrush" Value="#4D10B981"/>
+      <Setter Property="BorderThickness" Value="1"/>
+      <Setter Property="Foreground" Value="#34D399"/>
+      <Setter Property="FontSize" Value="11.5"/>
+      <Setter Property="FontWeight" Value="SemiBold"/>
+      <Setter Property="Padding" Value="9,4"/>
       <Setter Property="CornerRadius" Value="6"/>
     </Style>
     <Style Selector="TextBox">
-      <Setter Property="Background" Value="#09090B"/>
-      <Setter Property="BorderBrush" Value="#27272A"/>
-      <Setter Property="CornerRadius" Value="6"/>
+      <Setter Property="Background" Value="#08080B"/>
+      <Setter Property="BorderBrush" Value="#191923"/>
+      <Setter Property="CornerRadius" Value="7"/>
+      <Setter Property="FontSize" Value="12.5"/>
     </Style>
     <Style Selector="ComboBox">
-      <Setter Property="Background" Value="#09090B"/>
-      <Setter Property="BorderBrush" Value="#27272A"/>
-      <Setter Property="CornerRadius" Value="6"/>
+      <Setter Property="Background" Value="#08080B"/>
+      <Setter Property="BorderBrush" Value="#191923"/>
+      <Setter Property="CornerRadius" Value="7"/>
+      <Setter Property="FontSize" Value="12.5"/>
     </Style>
-    <Style Selector="Border.tourBackdrop">
-      <Setter Property="Background" Value="#040406"/>
-      <Setter Property="BorderBrush" Value="#14141A"/>
+    <Style Selector="ListBox">
+      <Setter Property="Background" Value="#08080B"/>
+      <Setter Property="BorderBrush" Value="#191923"/>
       <Setter Property="BorderThickness" Value="1"/>
-      <Setter Property="CornerRadius" Value="14"/>
-      <Setter Property="Padding" Value="24"/>
+      <Setter Property="CornerRadius" Value="7"/>
+    </Style>
+
+    <!-- Onboarding Tour Styles -->
+    <Style Selector="Border.tourBackdrop">
+      <Setter Property="Background" Value="#050507"/>
+      <Setter Property="BorderBrush" Value="#13131B"/>
+      <Setter Property="BorderThickness" Value="1"/>
+      <Setter Property="CornerRadius" Value="12"/>
+      <Setter Property="Padding" Value="28,22"/>
     </Style>
     <Style Selector="Border.glowOrb">
-      <Setter Property="Background" Value="#052E24"/>
-      <Setter Property="BorderBrush" Value="#10B981"/>
-      <Setter Property="BorderThickness" Value="1.5"/>
+      <Setter Property="Background" Value="#0A10B981"/>
+      <Setter Property="BorderBrush" Value="#3810B981"/>
+      <Setter Property="BorderThickness" Value="1"/>
       <Setter Property="CornerRadius" Value="999"/>
-      <Setter Property="BoxShadow" Value="0 0 36 4 #4010B981"/>
+      <Setter Property="BoxShadow" Value="0 0 44 2 #2210B981"/>
       <Style.Animations>
-        <Animation Duration="0:0:2.2" IterationCount="Infinite" PlaybackDirection="Alternate">
+        <Animation Duration="0:0:2.8" IterationCount="Infinite" PlaybackDirection="Alternate">
           <KeyFrame Cue="0%">
-            <Setter Property="Opacity" Value="0.45"/>
+            <Setter Property="Opacity" Value="0.55"/>
           </KeyFrame>
           <KeyFrame Cue="100%">
             <Setter Property="Opacity" Value="1.0"/>
@@ -133,11 +221,11 @@
       </Style.Animations>
     </Style>
     <Style Selector="Border.stageCard">
-      <Setter Property="Background" Value="#09090B"/>
-      <Setter Property="BorderBrush" Value="#1F2937"/>
+      <Setter Property="Background" Value="#0A0A0E"/>
+      <Setter Property="BorderBrush" Value="#171721"/>
       <Setter Property="BorderThickness" Value="1"/>
-      <Setter Property="CornerRadius" Value="14"/>
-      <Setter Property="Padding" Value="24"/>
+      <Setter Property="CornerRadius" Value="12"/>
+      <Setter Property="Padding" Value="28"/>
       <Setter Property="Transitions">
         <Transitions>
           <DoubleTransition Property="Opacity" Duration="0:0:0.25"/>
@@ -145,43 +233,43 @@
       </Setter>
     </Style>
     <Style Selector="Button.wizardCard">
-      <Setter Property="Background" Value="#09090B"/>
-      <Setter Property="BorderBrush" Value="#27272A"/>
+      <Setter Property="Background" Value="#0D0D13"/>
+      <Setter Property="BorderBrush" Value="#1B1B26"/>
       <Setter Property="BorderThickness" Value="1"/>
-      <Setter Property="Foreground" Value="#F4F4F5"/>
+      <Setter Property="Foreground" Value="#F4F4F6"/>
       <Setter Property="CornerRadius" Value="10"/>
       <Setter Property="Padding" Value="16,14"/>
-      <Setter Property="HorizontalContentAlignment" Value="Left"/>
+      <Setter Property="HorizontalContentAlignment" Value="Stretch"/>
       <Setter Property="VerticalContentAlignment" Value="Top"/>
     </Style>
     <Style Selector="Button.wizardCard:pointerover">
-      <Setter Property="Background" Value="#111827"/>
-      <Setter Property="BorderBrush" Value="#10B981"/>
+      <Setter Property="Background" Value="#111119"/>
+      <Setter Property="BorderBrush" Value="#2C2C3D"/>
     </Style>
     <Style Selector="Button.wizardCardActive">
-      <Setter Property="Background" Value="#052E24"/>
-      <Setter Property="BorderBrush" Value="#10B981"/>
-      <Setter Property="BorderThickness" Value="1.5"/>
-      <Setter Property="Foreground" Value="#ECFDF5"/>
+      <Setter Property="Background" Value="#1210B981"/>
+      <Setter Property="BorderBrush" Value="#6610B981"/>
+      <Setter Property="BorderThickness" Value="1"/>
+      <Setter Property="Foreground" Value="#F4F4F6"/>
       <Setter Property="CornerRadius" Value="10"/>
       <Setter Property="Padding" Value="16,14"/>
-      <Setter Property="HorizontalContentAlignment" Value="Left"/>
+      <Setter Property="HorizontalContentAlignment" Value="Stretch"/>
       <Setter Property="VerticalContentAlignment" Value="Top"/>
     </Style>
     <Style Selector="Border.pipelineNode">
-      <Setter Property="Background" Value="#09090B"/>
-      <Setter Property="BorderBrush" Value="#27272A"/>
+      <Setter Property="Background" Value="#0A0A0E"/>
+      <Setter Property="BorderBrush" Value="#181822"/>
       <Setter Property="BorderThickness" Value="1"/>
-      <Setter Property="CornerRadius" Value="8"/>
-      <Setter Property="Padding" Value="12,8"/>
-      <Setter Property="Opacity" Value="0.62"/>
+      <Setter Property="CornerRadius" Value="7"/>
+      <Setter Property="Padding" Value="10,7"/>
+      <Setter Property="Opacity" Value="0.6"/>
     </Style>
     <Style Selector="Border.pipelineNodeActive">
-      <Setter Property="Background" Value="#064E3B"/>
-      <Setter Property="BorderBrush" Value="#10B981"/>
-      <Setter Property="BorderThickness" Value="1.5"/>
-      <Setter Property="CornerRadius" Value="8"/>
-      <Setter Property="Padding" Value="12,8"/>
+      <Setter Property="Background" Value="#1010B981"/>
+      <Setter Property="BorderBrush" Value="#4D10B981"/>
+      <Setter Property="BorderThickness" Value="1"/>
+      <Setter Property="CornerRadius" Value="7"/>
+      <Setter Property="Padding" Value="10,7"/>
       <Setter Property="Opacity" Value="1.0"/>
     </Style>
   </Application.Styles>

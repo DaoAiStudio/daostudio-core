@@ -2,110 +2,119 @@
              xmlns:vm="using:DaoStudio.Desktop.ViewModels" x:Class="DaoStudio.Desktop.Views.LauncherView"
              x:DataType="vm:LauncherViewModel" x:CompileBindings="True">
   <ScrollViewer>
-    <StackPanel Spacing="18">
-      <!-- Header + Guia de Passo -->
-      <Grid ColumnDefinitions="*,Auto" RowDefinitions="Auto,Auto">
-        <StackPanel Spacing="4">
-          <TextBlock Text="Player Launcher" Classes="title"/>
-          <TextBlock Text="{Binding SelectedGame.DisplayName}" FontSize="16" FontWeight="SemiBold" Foreground="#6EE7B7"/>
-          <TextBlock Text="{Binding GameMetadataSummary}" FontSize="12" Classes="secondary" TextWrapping="Wrap"/>
+    <StackPanel Spacing="16">
+      <!-- Header -->
+      <Grid ColumnDefinitions="*,Auto">
+        <StackPanel Spacing="3">
+          <TextBlock Text="In-Game Bridge" Classes="title"/>
+          <TextBlock Text="{Binding SelectedGame.DisplayName}" FontSize="14" FontWeight="SemiBold" Foreground="#34D399"/>
+          <TextBlock Text="{Binding GameMetadataSummary}" Classes="mono" FontSize="11.5" TextWrapping="Wrap"/>
         </StackPanel>
         <Border Grid.Column="1" Classes="badge" VerticalAlignment="Top">
-          <TextBlock Text="{Binding DetectionStatusBadge}" FontSize="12" FontWeight="SemiBold" Foreground="#A7F3D0"/>
+          <TextBlock Text="{Binding DetectionStatusBadge}" FontSize="11.5" FontWeight="SemiBold" Foreground="#34D399"/>
         </Border>
       </Grid>
 
       <Border Classes="banner">
-        <StackPanel Spacing="2">
-          <TextBlock Text="PRÓXIMO PASSO RECOMENDADO" Classes="caption" Foreground="#6EE7B7"/>
-          <TextBlock Text="{Binding CurrentStepHint}" TextWrapping="Wrap" Foreground="#ECFDF5"/>
+        <StackPanel Spacing="3">
+          <TextBlock Text="PRÓXIMO PASSO" Classes="caption" Foreground="#34D399"/>
+          <TextBlock Text="{Binding CurrentStepHint}" FontSize="12.5" TextWrapping="Wrap" Foreground="#EAEAEF"/>
         </StackPanel>
       </Border>
 
       <!-- Layout em 2 colunas -->
       <Grid ColumnDefinitions="*,*">
-        <!-- Coluna Esquerda: Passos 1 e 2 -->
-        <StackPanel Spacing="16" Margin="0,0,10,0">
+        <!-- Coluna Esquerda: Sessão e Patch -->
+        <StackPanel Spacing="14" Margin="0,0,8,0">
           <Border Classes="panel">
             <StackPanel Spacing="10">
-              <TextBlock Text="1. Sessão &amp; Licença (Dispensada em Debug)" Classes="section"/>
-              <TextBox Text="{Binding LicenseKey}" Watermark="Opcional neste momento de debug" PasswordChar="●"/>
-              <TextBlock Text="{Binding SessionStatus}" Foreground="#6EE7B7" FontSize="13" TextWrapping="Wrap"/>
-              <TextBlock Text="Modo Debug ativo: você pode detectar jogos, aplicar patches e iniciar a Bridge sem inserir chave." FontSize="12" Classes="secondary" TextWrapping="Wrap"/>
+              <Grid ColumnDefinitions="*,Auto">
+                <TextBlock Text="Sessão &amp; Licença" Classes="section"/>
+                <Border Grid.Column="1" Classes="badgeNeutral">
+                  <TextBlock Text="DEBUG" Classes="mono" FontSize="10" Foreground="#34D399"/>
+                </Border>
+              </Grid>
+              <TextBox Text="{Binding LicenseKey}" Watermark="Chave opcional (dispensada no modo debug)" PasswordChar="●"/>
+              <TextBlock Text="{Binding SessionStatus}" Foreground="#34D399" FontSize="12" TextWrapping="Wrap"/>
+              <TextBlock Text="Modo Debug ativo: detecção Steam, patch transacional e loopback bridge liberados sem chave." FontSize="12" Classes="secondary" TextWrapping="Wrap"/>
             </StackPanel>
           </Border>
 
           <Border Classes="panel">
-            <StackPanel Spacing="10">
+            <StackPanel Spacing="12">
               <Grid ColumnDefinitions="*,Auto">
-                <TextBlock Text="2. Jogo e Patch Transacional" Classes="section"/>
-                <TextBlock Grid.Column="1" Text="{Binding PatchApplied, StringFormat='Patch: {0}'}" FontSize="12" Foreground="#6EE7B7" VerticalAlignment="Center"/>
+                <TextBlock Text="Instalação &amp; Patch Transacional" Classes="section"/>
+                <Border Grid.Column="1" Classes="badgeNeutral" VerticalAlignment="Center">
+                  <TextBlock Text="{Binding PatchStatusText}" Classes="mono" FontSize="11" Foreground="#34D399"/>
+                </Border>
               </Grid>
-              <TextBlock Text="{Binding ExecAndLoaderSummary}" FontSize="12" Classes="secondary" TextWrapping="Wrap"/>
+              <TextBlock Text="{Binding ExecAndLoaderSummary}" Classes="mono" FontSize="11.5" TextWrapping="Wrap"/>
               <Border Classes="metric">
-                <StackPanel Spacing="2">
-                  <TextBlock Text="PASTA DETECTADA NA STEAM" Classes="caption"/>
-                  <TextBlock Text="{Binding DetectedGame.InstallDirectory, TargetNullValue='Ainda não detectado — clique em Detectar na Steam'}" TextWrapping="Wrap" FontSize="13"/>
+                <StackPanel Spacing="3">
+                  <TextBlock Text="DIRETÓRIO NA STEAM" Classes="caption"/>
+                  <TextBlock Text="{Binding DetectedGame.InstallDirectory, TargetNullValue='Não detectado — clique em Detectar na Steam'}" Classes="mono" TextWrapping="Wrap" FontSize="12"/>
                 </StackPanel>
               </Border>
-              <StackPanel Spacing="4">
-                <TextBlock Text="Pasta de Staging (arquivos do mod/plugin para aplicar)" FontSize="12" Classes="secondary"/>
-                <TextBox Text="{Binding StagedFilesDirectory}" Watermark="Caminho da pasta com os arquivos preparados"/>
+              <StackPanel Spacing="5">
+                <TextBlock Text="Diretório de staging (arquivos preparados do mod)" FontSize="12" Classes="secondary"/>
+                <TextBox Text="{Binding StagedFilesDirectory}" Watermark="Caminho da pasta de staging"/>
               </StackPanel>
               <WrapPanel>
-                <Button Content="1. Detectar na Steam" Command="{Binding DetectGameCommand}" Margin="0,0,8,8"/>
-                <Button Content="2. Instalar e Ativar" Classes="primary" Command="{Binding InstallAndActivatePatchCommand}" Margin="0,0,8,8"/>
-                <Button Content="Restaurar Original" Command="{Binding RollbackPatchCommand}" Margin="0,0,0,8"/>
+                <Button Content="Detectar na Steam" Command="{Binding DetectGameCommand}" Margin="0,0,8,6"/>
+                <Button Content="Aplicar Patch" Classes="primary" Command="{Binding InstallAndActivatePatchCommand}" Margin="0,0,8,6"/>
+                <Button Content="Restaurar Original" Command="{Binding RollbackPatchCommand}" Margin="0,0,0,6"/>
               </WrapPanel>
               <Border Classes="alertError" IsVisible="{Binding ErrorMessage, Converter={x:Static StringConverters.IsNotNullOrEmpty}}">
-                <TextBlock Text="{Binding ErrorMessage}" Foreground="#FCA5A5" TextWrapping="Wrap" FontSize="13"/>
+                <TextBlock Text="{Binding ErrorMessage}" Foreground="#FCA5A5" TextWrapping="Wrap" FontSize="12.5"/>
               </Border>
             </StackPanel>
           </Border>
         </StackPanel>
 
-        <!-- Coluna Direita: Passo 3 (Bridge + Telemetria + Console) -->
-        <StackPanel Grid.Column="1" Spacing="16" Margin="10,0,0,0">
+        <!-- Coluna Direita: Bridge + Telemetria + Console -->
+        <StackPanel Grid.Column="1" Spacing="14" Margin="8,0,0,0">
           <Border Classes="panel">
             <StackPanel Spacing="12">
               <Grid ColumnDefinitions="*,Auto">
-                <TextBlock Text="3. Loopback Bridge e Telemetria" Classes="section"/>
-                <TextBlock Grid.Column="1" Text="{Binding BridgeStatus}" Foreground="#6EE7B7" FontSize="13" VerticalAlignment="Center"/>
+                <TextBlock Text="Loopback Bridge &amp; Telemetria" Classes="section"/>
+                <Border Grid.Column="1" Classes="badgeNeutral">
+                  <TextBlock Text="{Binding BridgeStatus}" Classes="mono" FontSize="11" Foreground="#34D399"/>
+                </Border>
               </Grid>
 
               <Grid ColumnDefinitions="*,*,*,*">
-                <Border Classes="metric" Margin="0,0,6,0">
-                  <StackPanel>
+                <Border Classes="metric" Margin="0,0,5,0">
+                  <StackPanel Spacing="2">
                     <TextBlock Text="CACHE HIT" Classes="caption"/>
-                    <TextBlock Text="{Binding CacheHitPercent, StringFormat='{}{0:F1}%'}" FontSize="18" FontWeight="Bold" Foreground="#6EE7B7"/>
+                    <TextBlock Text="{Binding CacheHitPercent, StringFormat='{}{0:F1}%'}" Classes="mono" FontSize="17" FontWeight="Bold" Foreground="#34D399"/>
                   </StackPanel>
                 </Border>
                 <Border Classes="metric" Grid.Column="1" Margin="3,0,3,0">
-                  <StackPanel>
+                  <StackPanel Spacing="2">
                     <TextBlock Text="L0 RAM" Classes="caption"/>
-                    <TextBlock Text="{Binding L0Hits}" FontSize="18" FontWeight="Bold"/>
+                    <TextBlock Text="{Binding L0Hits}" Classes="mono" FontSize="17" FontWeight="Bold" Foreground="#F4F4F6"/>
                   </StackPanel>
                 </Border>
                 <Border Classes="metric" Grid.Column="2" Margin="3,0,3,0">
-                  <StackPanel>
+                  <StackPanel Spacing="2">
                     <TextBlock Text="L1 SQLITE" Classes="caption"/>
-                    <TextBlock Text="{Binding L1Hits}" FontSize="18" FontWeight="Bold"/>
+                    <TextBlock Text="{Binding L1Hits}" Classes="mono" FontSize="17" FontWeight="Bold" Foreground="#F4F4F6"/>
                   </StackPanel>
                 </Border>
-                <Border Classes="metric" Grid.Column="3" Margin="6,0,0,0">
-                  <StackPanel>
+                <Border Classes="metric" Grid.Column="3" Margin="5,0,0,0">
+                  <StackPanel Spacing="2">
                     <TextBlock Text="L2 CLOUD" Classes="caption"/>
-                    <TextBlock Text="{Binding L2Hits}" FontSize="18" FontWeight="Bold"/>
+                    <TextBlock Text="{Binding L2Hits}" Classes="mono" FontSize="17" FontWeight="Bold" Foreground="#F4F4F6"/>
                   </StackPanel>
                 </Border>
               </Grid>
 
-              <ProgressBar Minimum="0" Maximum="100" Value="{Binding CacheHitPercent}" Height="6" Foreground="#10B981" Background="#27272A"/>
+              <ProgressBar Minimum="0" Maximum="100" Value="{Binding CacheHitPercent}" Height="3" Foreground="#10B981" Background="#16161F" CornerRadius="2"/>
 
               <WrapPanel>
-                <TextBlock Text="{Binding BridgePort, StringFormat='Porta: {0}'}" FontSize="12" Classes="secondary" Margin="0,0,18,0"/>
-                <TextBlock Text="{Binding TokenSummary, StringFormat='Token: {0}'}" FontSize="12" Classes="secondary" Margin="0,0,18,0"/>
-                <TextBlock Text="{Binding CircuitState, StringFormat='Circuit: {0}'}" FontSize="12" Classes="secondary"/>
+                <TextBlock Text="{Binding BridgePort, StringFormat='Porta: {0}'}" Classes="mono" FontSize="11.5" Margin="0,0,18,0"/>
+                <TextBlock Text="{Binding TokenSummary, StringFormat='Token: {0}'}" Classes="mono" FontSize="11.5" Margin="0,0,18,0"/>
+                <TextBlock Text="{Binding CircuitState, StringFormat='Circuit: {0}'}" Classes="mono" FontSize="11.5"/>
               </WrapPanel>
 
               <StackPanel Orientation="Horizontal" Spacing="8">
@@ -118,18 +127,20 @@
           <Border Classes="panel">
             <StackPanel Spacing="10">
               <Grid ColumnDefinitions="*,Auto">
-                <TextBlock Text="Logs de Diagnóstico" Classes="section"/>
+                <TextBlock Text="Console de Diagnóstico" Classes="section"/>
                 <Button Grid.Column="1" Content="Limpar" Classes="chip" Command="{Binding ClearLogsCommand}"/>
               </Grid>
-              <ScrollViewer MaxHeight="240">
-                <ItemsControl ItemsSource="{Binding DiagnosticLogs}">
-                  <ItemsControl.ItemTemplate>
-                    <DataTemplate x:DataType="x:String">
-                      <TextBlock Text="{Binding}" FontSize="12" Classes="secondary" TextWrapping="Wrap" Margin="0,3"/>
-                    </DataTemplate>
-                  </ItemsControl.ItemTemplate>
-                </ItemsControl>
-              </ScrollViewer>
+              <Border Background="#07070A" BorderBrush="#161620" BorderThickness="1" CornerRadius="7" Padding="10">
+                <ScrollViewer MaxHeight="240">
+                  <ItemsControl ItemsSource="{Binding DiagnosticLogs}">
+                    <ItemsControl.ItemTemplate>
+                      <DataTemplate x:DataType="x:String">
+                        <TextBlock Text="{Binding}" Classes="mono" FontSize="11.5" TextWrapping="Wrap" Margin="0,2"/>
+                      </DataTemplate>
+                    </ItemsControl.ItemTemplate>
+                  </ItemsControl>
+                </ScrollViewer>
+              </Border>
             </StackPanel>
           </Border>
         </StackPanel>
