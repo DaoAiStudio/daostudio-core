@@ -1,48 +1,33 @@
 ﻿# DaoStudio Desktop
 
-Avalonia 11.1.3, .NET 8, Player Launcher e Studio Workbench. Tema Zinc/Emerald.
+Aplicativo desktop em **Avalonia 11.1.3** e **.NET 8** com design system minimalista obsidian (`#070709` / `#0C0C10` / acento esmeralda `#10B981`).
 
-## Executar
+## Estrutura de Módulos
 
-`dotnet run --project src/DaoStudio.Desktop/DaoStudio.Desktop.csproj`
+- **`00` Assistente Inicial (`TourView`)**: abertura animada sem sidebar visível durante a personalização; perguntas em etapas que conectam objetivo, universo/glossário e estilo ao workspace de destino.
+- **`01` In-Game Bridge (`LauncherView`)**: detecção automática Steam para os 5 perfis em `profiles/`, patch transacional com backup/rollback e servidor loopback (`127.0.0.1`) em porta efêmera com telemetria L0/L1/L2. Em modo debug, a chave de licença é opcional.
+- **`02` Studio CAT (`WorkbenchView`)**: editor de localização com trava de variáveis/tags, glossário canônico Aho-Corasick, filtros com indicadores de aprovação e persistência no cache L1/L0 via `Ctrl + Enter`.
+- **`03` Novels & Mangás (`MaterialsView`)**: abas segmentadas para **Manhua** (limite de caracteres por balão + roteiro de typesetting), **Webnovel** (divisor de capítulos e exportação bilíngue ZH + PT-BR) e **Lore & Wiki**.
 
-A detecção Steam ocorre ao abrir a janela. O Launcher valida apenas o formato da licença;
-sem contrato de autenticação/endpoint configurado, a sessão é explicitamente offline.
-A Bridge atende em loopback com porta efêmera, cache L0/L1 e fallback para o original.
-O painel distingue servidor escutando de cliente conectado (a Bridge não expõe contagem de clientes).
-O token exibido é resumido, sem expor a credencial completa no diagnóstico.
+## Executar e Testar
 
-## Patch
+```powershell
+dotnet run --project src/DaoStudio.Desktop/DaoStudio.Desktop.csproj
+dotnet test tests/DaoStudio.Desktop.Tests/DaoStudio.Desktop.Tests.csproj --no-restore -p:UseSharedCompilation=false
+dotnet build src/DaoStudio.Desktop/DaoStudio.Desktop.csproj --no-restore -p:UseSharedCompilation=false
+```
 
-Informe uma pasta de staging separada da instalação do jogo, com a árvore de arquivos
-pronta para copiar (loader/plugin/fontes preparados). O perfil atual tem hashes SHA-256
-zerados; não há download automático de artefatos de produção nem pacote de patch incluído.
-O gerenciador real preserva backup e realiza rollback. Feche o jogo antes da instalação/restauração.
+## Patch e Armazenamento Local
 
-## Revisão
+- Informe uma pasta de staging separada da instalação do jogo para testar `PatchTransactionManager` com backup e rollback automáticos (feche o jogo antes de aplicar ou restaurar).
+- O banco SQLite L1 e a chave `cache.key` são armazenados localmente em `LocalApplicationData/DaoStudio` (ou no diretório injetado via DI nos testes).
 
-Importe/exporte usando o caminho de arquivo na tela. Ctrl+Enter aprova, grava L1/L0 e
-avança. Variáveis e tags devem preservar identidade e multiplicidade. Termos proibidos,
-limites do glossário e texto vazio bloqueiam aprovação. Alterar texto revoga a aprovação.
-JSON/CSV preservam os campos de revisão. TXT acompanha um `.review.json`: mantenha ambos
-para reimportar originais e aprovações. Um acompanhante incompatível com o TXT é ignorado.
-Amostras são opcionais e só carregam mediante comando.
+## Empacotamento e Release
 
-O SQLite e `cache.key` ficam em LocalApplicationData/DaoStudio, ou no diretório passado ao DI.
-A chave persistente permite reabrir o cache; depende das permissões locais do diretório,
-não de um cofre de credenciais. Não distribua esse diretório como conteúdo do aplicativo.
+```powershell
+# Pacote Release portátil (requer .NET 8 Desktop Runtime no Windows)
+dotnet publish src/DaoStudio.Desktop/DaoStudio.Desktop.csproj -c Release --no-restore -p:UseSharedCompilation=false -o releases/DaoStudio-v0.1.0-win-x64
 
-## Verificação e pacote
-
-Testes xUnit não abrem janela. Incluem HTTP real em porta efêmera e mocks sem socket.
-No sandbox, use o config NuGet temporário definido na tarefa. Caso o SDK tente ler o
-NuGet.Config do usuário sem permissão, defina APPDATA apenas no processo para uma pasta
-em TEMP antes do restore/build/test. Nenhum NuGet.Config é necessário no repositório.
-
-`dotnet test tests/DaoStudio.Desktop.Tests/DaoStudio.Desktop.Tests.csproj --no-restore -p:UseSharedCompilation=false`
-
-`dotnet build src/DaoStudio.Desktop/DaoStudio.Desktop.csproj --no-restore -p:UseSharedCompilation=false`
-
-`./scripts/publish-velopack.ps1 -Version 1.0.0` publica self-contained win-x64 e executa
-`vpk pack` em releases. Requer CLI vpk e runtime packs instalados. Não publica releases
-remotos, não assina instaladores e não configura um feed de atualização.
+# Empacotamento com Velopack (requer CLI global 'vpk' e runtime pack win-x64)
+./scripts/publish-velopack.ps1 -Version 0.1.0
+```

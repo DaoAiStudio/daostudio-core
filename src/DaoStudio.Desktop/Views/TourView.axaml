@@ -23,6 +23,7 @@
               <TextBlock Text="{Binding InferredPersonaBadge}" FontSize="11.5" FontWeight="SemiBold" Foreground="#34D399"/>
             </Border>
             <TextBlock Text="{Binding WizardProgressPercent, StringFormat='{}{0}%'}" Classes="mono" FontSize="11.5" Foreground="#5C5C6E" VerticalAlignment="Center"/>
+            <Button Classes="chip" Command="{Binding SkipTourCommand}" Content="Pular personalização"/>
           </StackPanel>
         </Grid>
         <ProgressBar Minimum="0" Maximum="100" Value="{Binding WizardProgressPercent}" Height="2" Foreground="#10B981" Background="#13131B" CornerRadius="1"/>
@@ -47,13 +48,18 @@
                   <TextBlock Text="Em 3 perguntas rápidas, conectamos o universo, o nível de assistência e o workspace ideal para o seu objetivo."
                              Classes="secondary" FontSize="13.5" TextWrapping="Wrap" TextAlignment="Center"/>
                 </StackPanel>
-                <Button Classes="primary"
-                        Command="{Binding StartWizardCommand}"
-                        HorizontalAlignment="Center"
-                        Padding="22,10"
-                        FontSize="13"
-                        Content="Iniciar configuração"/>
-                <TextBlock Text="Todos os workspaces permanecem acessíveis no menu lateral a qualquer momento."
+                <StackPanel Orientation="Horizontal" Spacing="10" HorizontalAlignment="Center">
+                  <Button Classes="primary"
+                          Command="{Binding StartWizardCommand}"
+                          Padding="22,10"
+                          FontSize="13"
+                          Content="Iniciar configuração"/>
+                  <Button Command="{Binding SkipTourCommand}"
+                          Padding="18,10"
+                          FontSize="13"
+                          Content="Ir direto ao workspace"/>
+                </StackPanel>
+                <TextBlock Text="Durante a personalização o menu lateral fica oculto; você poderá alternar entre todos os módulos em seguida."
                            FontSize="11.5" Foreground="#5C5C6E" HorizontalAlignment="Center" TextAlignment="Center"/>
               </StackPanel>
             </Border>

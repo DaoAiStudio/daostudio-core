@@ -18,6 +18,7 @@ public partial class MainWindowViewModel : ObservableObject
     [ObservableProperty] private GameProfileManifest selectedGame;
 
     public bool IsTourActive => CurrentView == Tour;
+    public bool IsSidebarVisible => !IsTourActive;
     public bool IsLauncherActive => CurrentView == Launcher;
     public bool IsWorkbenchActive => CurrentView == Workbench;
     public bool IsMaterialsActive => CurrentView == Materials;
@@ -58,6 +59,7 @@ public partial class MainWindowViewModel : ObservableObject
     partial void OnCurrentViewChanged(ObservableObject value)
     {
         OnPropertyChanged(nameof(IsTourActive));
+        OnPropertyChanged(nameof(IsSidebarVisible));
         OnPropertyChanged(nameof(IsLauncherActive));
         OnPropertyChanged(nameof(IsWorkbenchActive));
         OnPropertyChanged(nameof(IsMaterialsActive));

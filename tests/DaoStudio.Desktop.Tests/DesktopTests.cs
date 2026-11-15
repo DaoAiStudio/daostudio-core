@@ -386,20 +386,30 @@ public sealed class DesktopTests : IDisposable
         var main = provider.GetRequiredService<MainWindowViewModel>();
         Assert.Same(main.Tour, main.CurrentView);
         Assert.True(main.IsTourActive);
+        Assert.False(main.IsSidebarVisible);
         Assert.False(main.IsMaterialsActive);
 
         main.ShowLauncherCommand.Execute(null);
         Assert.Same(main.Launcher, main.CurrentView);
         Assert.True(main.IsLauncherActive);
+        Assert.True(main.IsSidebarVisible);
 
         main.ShowMaterialsCommand.Execute(null);
         Assert.Same(main.Materials, main.CurrentView);
         Assert.True(main.IsMaterialsActive);
+        Assert.True(main.IsSidebarVisible);
         Assert.False(main.IsTourActive);
 
         main.ShowTourCommand.Execute(null);
         Assert.Same(main.Tour, main.CurrentView);
         Assert.True(main.IsTourActive);
+        Assert.False(main.IsSidebarVisible);
+
+        main.Tour.SkipTourCommand.Execute(null);
+        Assert.Same(main.Launcher, main.CurrentView);
+        Assert.True(main.IsSidebarVisible);
+
+        main.ShowTourCommand.Execute(null);
 
         var wuxia = main.AvailableGames.Single(g => g.GameId == "wanderingsword");
         main.SelectedGame = wuxia;
@@ -416,6 +426,7 @@ public sealed class DesktopTests : IDisposable
         var main = provider.GetRequiredService<MainWindowViewModel>();
 
         Assert.Equal(0, main.Tour.CurrentStage);
+        Assert.False(main.IsSidebarVisible);
         Assert.True(main.Tour.IsStage0Intro);
         Assert.False(main.Tour.IsNode1Active);
         Assert.Equal(0, main.Tour.WizardProgressPercent);

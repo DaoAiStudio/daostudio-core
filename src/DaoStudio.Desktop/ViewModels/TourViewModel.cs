@@ -22,7 +22,7 @@ public partial class TourViewModel : ObservableObject
     [ObservableProperty] private bool autoLoadSamples = true;
     [ObservableProperty] private bool autoGenerateBilingualPreview = true;
     [ObservableProperty] private int customBubbleMaxChars = 55;
-    [ObservableProperty] private string tourStatusMessage = "Responda às etapas ou escolha um workspace na lateral.";
+    [ObservableProperty] private string tourStatusMessage = "Responda às etapas para montar seu fluxo personalizado.";
 
     public bool IsStage0Intro => CurrentStage == 0;
     public bool IsStage1Intent => CurrentStage == 1;
@@ -211,6 +211,12 @@ public partial class TourViewModel : ObservableObject
     private void StartWizard()
     {
         CurrentStage = 1;
+    }
+
+    [RelayCommand]
+    private void SkipTour()
+    {
+        NavigateToModuleRequested?.Invoke(launcher);
     }
 
     [RelayCommand]
