@@ -1,0 +1,21 @@
+{
+  "gameId": "xiuxiansimulator",
+  "displayName": "Amazing Cultivation Simulator (了不起的修仙模拟器)",
+  "steamAppId": "955900",
+  "executableName": "Amazing Cultivation Simulator.exe",
+  "engine": "unity-mono",
+  "loader": {
+    "type": "bepinex",
+    "version": "5.4.x",
+    "officialReleaseUrl": "https://github.com/BepInEx/BepInEx/releases/download/v5.4.23.2/BepInEx_win_x64_5.4.23.2.zip",
+    "sha256": "0000000000000000000000000000000000000000000000000000000000000000"
+  },
+  "fontAsset": {
+    "name": "NotoSansCJK_SC_SDF",
+    "license": "SIL-OFL-1.1",
+    "downloadUrl": "https://cdn.daostudio.ai/fonts/notosans_cjk_sc_sdf.bundle",
+    "sha256": "0000000000000000000000000000000000000000000000000000000000000000"
+  },
+  "pluginVersion": "1.0.0",
+  "glossaryVersion": 1
+}

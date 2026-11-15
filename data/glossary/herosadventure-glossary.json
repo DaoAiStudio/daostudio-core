@@ -1,0 +1,12 @@
+[
+  { "zh": "江湖", "pinyin": "Jiāng Hú", "ptBr": "Jianghu", "en": "Jianghu", "es": "Jianghu", "category": "world", "forbiddenLiterals": ["Rio e Lago"], "maxChars": 24 },
+  { "zh": "内功", "pinyin": "Nèi Gōng", "ptBr": "Cultivo Interno", "en": "Internal Martial Art", "es": "Cultivo Interno", "category": "technique", "forbiddenLiterals": ["Trabalho Interno"], "maxChars": 30 },
+  { "zh": "武功", "pinyin": "Wǔ Gōng", "ptBr": "Arte Marcial", "en": "Martial Art", "es": "Arte Marcial", "category": "technique", "forbiddenLiterals": ["Trabalho Militar"], "maxChars": 28 },
+  { "zh": "侠义", "pinyin": "Xiá Yì", "ptBr": "Cavalheirismo", "en": "Chivalry", "es": "Caballerosidad", "category": "attribute", "forbiddenLiterals": ["Justiça do Herói Literal"], "maxChars": 26 },
+  { "zh": "门派", "pinyin": "Mén Pài", "ptBr": "Seita Marcial", "en": "Sect", "es": "Secta Marcial", "category": "faction", "forbiddenLiterals": ["Escola de Porta"], "maxChars": 28 },
+  { "zh": "好感度", "pinyin": "Hǎo Gǎn Dù", "ptBr": "Afinidade", "en": "Relationship", "es": "Afinidad", "category": "social", "forbiddenLiterals": ["Grau de Bom Sentimento"], "maxChars": 24 },
+  { "zh": "轻功", "pinyin": "Qīng Gōng", "ptBr": "Técnica de Leveza", "en": "Lightness Skill", "es": "Técnica de Ligereza", "category": "technique", "forbiddenLiterals": ["Trabalho Leve"], "maxChars": 30 },
+  { "zh": "秘籍", "pinyin": "Mì Jí", "ptBr": "Manual Secreto", "en": "Manual", "es": "Manual Secreto", "category": "item", "forbiddenLiterals": ["Livro de Receita Secreta"], "maxChars": 28 },
+  { "zh": "声望", "pinyin": "Shēng Wàng", "ptBr": "Renome", "en": "Reputation", "es": "Renombre", "category": "attribute", "forbiddenLiterals": ["Olhar de Som"], "maxChars": 24 },
+  { "zh": "客栈", "pinyin": "Kè Zhàn", "ptBr": "Estalagem", "en": "Inn", "es": "Posada", "category": "location", "forbiddenLiterals": ["Estação de Convidados"], "maxChars": 24 }
+]

@@ -1,0 +1,102 @@
+[
+  {
+    "id": "mh-001",
+    "category": "Manhua",
+    "reference": "Pág. 01 • Painel 01",
+    "blockType": "Narração",
+    "sourceText": "大荒历三千年，灵气复苏。",
+    "translatedText": "Ano 3.000 do Grande Ermo: o Qi Espiritual desperta.",
+    "maxChars": 65,
+    "approved": false
+  },
+  {
+    "id": "mh-002",
+    "category": "Manhua",
+    "reference": "Pág. 01 • Painel 02",
+    "blockType": "Diálogo",
+    "sourceText": "{PlayerName}，你终于踏入筑基期了！",
+    "translatedText": "{PlayerName}, enfim alcançou o Estabelecimento de Fundação!",
+    "maxChars": 64,
+    "approved": false
+  },
+  {
+    "id": "mh-003",
+    "category": "Manhua",
+    "reference": "Pág. 02 • Painel 01",
+    "blockType": "Pensamento",
+    "sourceText": "只要服下这枚筑基丹，我的道心就能稳固。",
+    "translatedText": "Basta tomar esta Pílula da Fundação para firmar meu Coração do Dao.",
+    "maxChars": 75,
+    "approved": false
+  },
+  {
+    "id": "mh-004",
+    "category": "Manhua",
+    "reference": "Pág. 02 • Painel 03",
+    "blockType": "SFX",
+    "sourceText": "轰隆——剑鸣！",
+    "translatedText": "ZUUUM — ECO DA ESPADA!",
+    "maxChars": 28,
+    "approved": false
+  },
+  {
+    "id": "wn-001",
+    "category": "Webnovel",
+    "reference": "Cap. 01 • Parágrafo 01",
+    "blockType": "Narração",
+    "sourceText": "夜色沉沉，青云宗的后山却依然灯火通明。{PlayerName}盘膝坐在蒲团上，引导天地间的灵气缓缓汇入丹田。",
+    "translatedText": "A noite caía pesada, mas o pico traseiro da Seita Nuvem Azul seguia iluminado. {PlayerName} sentou-se em lótus, guiando o Qi Espiritual dos céus lentamente para seu Dantian.",
+    "maxChars": 280,
+    "approved": false
+  },
+  {
+    "id": "wn-002",
+    "category": "Webnovel",
+    "reference": "Cap. 01 • Parágrafo 02",
+    "blockType": "Diálogo",
+    "sourceText": "「炼气期只是修仙大道的起点。唯有突破至金丹期，才能真正逆天改命。」长老负手而立，声音宛若洪钟。",
+    "translatedText": "\"O Refinamento de Qi é apenas o início da Grande Estrada. Só ao romper para o Núcleo Dourado você desafiará o destino.\" Disse o Ancião, de mãos atrás das costas.",
+    "maxChars": 280,
+    "approved": false
+  },
+  {
+    "id": "wn-003",
+    "category": "Webnovel",
+    "reference": "Cap. 01 • Parágrafo 03",
+    "blockType": "Narração",
+    "sourceText": "他从储物戒中取出十块灵石，准备迎战即将降临的天劫。",
+    "translatedText": "Ele retirou dez Pedras Espirituais do Anel de Armazenamento, preparando-se para enfrentar a iminente Tribulação Celestial.",
+    "maxChars": 280,
+    "approved": false
+  },
+  {
+    "id": "wiki-001",
+    "category": "LoreWiki",
+    "reference": "Reinos • Estágio I",
+    "blockType": "Enciclopédia",
+    "sourceText": "炼气期：修士吸纳天地灵气入体，开启修仙之路的基础境界。",
+    "translatedText": "Refinamento de Qi: reino inicial no qual o cultivador absorve Qi Espiritual do céu e da terra.",
+    "maxChars": 220,
+    "approved": false
+  },
+  {
+    "id": "wiki-002",
+    "category": "LoreWiki",
+    "reference": "Reinos • Estágio II",
+    "blockType": "Enciclopédia",
+    "sourceText": "筑基期：压缩灵气为液态真元，重塑道基与寿元。",
+    "translatedText": "Estabelecimento de Fundação: condensa o Qi em essência líquida, forjando a base imortal.",
+    "maxChars": 220,
+    "approved": false
+  },
+  {
+    "id": "wiki-003",
+    "category": "LoreWiki",
+    "reference": "Artefatos • Alquimia",
+    "blockType": "Enciclopédia",
+    "sourceText": "筑基丹：炼气圆满修士突破筑基期时不可或缺的灵丹。",
+    "translatedText": "Pílula da Fundação: elixir essencial para cultivadores romperem do Refinamento de Qi para a Fundação.",
+    "maxChars": 220,
+    "approved": false
+  }
+]

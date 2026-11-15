@@ -1,0 +1,10 @@
+[
+  { "id": "acs-001", "key": "sect.inner.promote", "sourceText": "{PlayerName}晋升为内门弟子。", "translatedText": "{PlayerName} foi promovido a Discípulo Interno.", "approved": true, "context": "system_message" },
+  { "id": "acs-002", "key": "sect.outer.task", "sourceText": "指派{0}名外门弟子采集灵材。", "translatedText": "Designe {0} Discípulos Externos para coletar materiais espirituais.", "approved": true, "context": "tooltip" },
+  { "id": "acs-003", "key": "qi.density", "sourceText": "此处灵气充沛，适合布置聚灵阵。", "translatedText": "O Qi Espiritual aqui é abundante, ideal para construir uma Matriz de Concentração de Qi.", "approved": true, "context": "dialogue" },
+  { "id": "acs-004", "key": "cultivation.golden_core", "sourceText": "结成上品<color=#F59E0B>金丹</color>。", "translatedText": "Formou um <color=#F59E0B>Núcleo Dourado</color> de grau superior.", "approved": true, "context": "system_message" },
+  { "id": "acs-005", "key": "room.fengshui", "sourceText": "房间风水评估：{0}", "translatedText": "Avaliação de Feng Shui do aposento: {0}", "approved": true, "context": "tooltip" },
+  { "id": "acs-006", "key": "disciple.mindstate", "sourceText": "保持心境平和，方能抵御天劫。", "translatedText": "Mantenha o Estado Mental sereno para resistir à Tribulação Celestial.", "approved": true, "context": "dialogue" },
+  { "id": "acs-007", "key": "ui.craft.artifact", "sourceText": "开始炼宝", "translatedText": "Iniciar Refinar Artefato", "approved": true, "context": "button" },
+  { "id": "acs-008", "key": "law.choose", "sourceText": "{PlayerName}正在研习核心功法。", "translatedText": "{PlayerName} está estudando uma Lei de Cultivo fundamental.", "approved": true, "context": "dialogue" }
+]

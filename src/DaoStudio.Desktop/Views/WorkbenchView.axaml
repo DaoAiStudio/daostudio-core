@@ -1,0 +1,143 @@
+﻿<UserControl xmlns="https://github.com/avaloniaui" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:vm="using:DaoStudio.Desktop.ViewModels" xmlns:contracts="using:DaoStudio.Contracts"
+             x:Name="WorkbenchRoot"
+             x:Class="DaoStudio.Desktop.Views.WorkbenchView" x:DataType="vm:WorkbenchViewModel" x:CompileBindings="True">
+  <UserControl.KeyBindings>
+    <KeyBinding Gesture="Ctrl+Enter" Command="{Binding ApproveSegmentCommand}"/>
+  </UserControl.KeyBindings>
+
+  <Grid RowDefinitions="Auto,Auto,*,Auto">
+    <!-- Cabecalho + Progresso -->
+    <Grid ColumnDefinitions="*,Auto" Margin="0,0,0,12">
+      <StackPanel Spacing="2">
+        <TextBlock Text="Studio Workbench (CAT)" Classes="title"/>
+        <TextBlock Text="{Binding SelectedGame.DisplayName, StringFormat='Glossário e seed ativos: {0}'}" Foreground="#6EE7B7" FontSize="13"/>
+      </StackPanel>
+      <StackPanel Grid.Column="1" MinWidth="240" VerticalAlignment="Center" Spacing="6">
+        <TextBlock Text="{Binding Progress}" HorizontalAlignment="Right" FontWeight="SemiBold" Foreground="#6EE7B7"/>
+        <ProgressBar Minimum="0" Maximum="100" Value="{Binding ProgressPercent}" Height="7" Foreground="#10B981" Background="#27272A"/>
+      </StackPanel>
+    </Grid>
+
+    <!-- Barra de Arquivos -->
+    <Border Grid.Row="1" Classes="panel" Padding="14" Margin="0,0,0,14">
+      <StackPanel Spacing="8">
+        <Grid ColumnDefinitions="*,Auto,Auto,Auto">
+          <TextBox Text="{Binding FilePath}" Watermark="Caminho do arquivo .json, .csv ou .txt para importar ou exportar" Margin="0,0,8,0"/>
+          <Button Grid.Column="1" Content="Importar" Command="{Binding ImportCommand}" Margin="0,0,6,0"/>
+          <Button Grid.Column="2" Content="Exportar" Command="{Binding ExportCommand}" Margin="0,0,6,0"/>
+          <Button Grid.Column="3" Content="Carregar amostras do jogo" Classes="primary" Command="{Binding LoadSeedCommand}"/>
+        </Grid>
+        <TextBlock Text="{Binding FileStatus}" FontSize="12" Classes="secondary" TextWrapping="Wrap"/>
+      </StackPanel>
+    </Border>
+
+    <!-- Master-Detail: Lista de Segmentos | Editor Lado a Lado -->
+    <Grid Grid.Row="2" ColumnDefinitions="320,*">
+      <!-- Lista com Busca e Filtros -->
+      <Border Classes="panel" Padding="12" Margin="0,0,14,0">
+        <Grid RowDefinitions="Auto,Auto,*">
+          <TextBox Text="{Binding SearchQuery}" Watermark="Buscar chave, original ZH ou tradução..." Margin="0,0,0,8"/>
+          <StackPanel Grid.Row="1" Orientation="Horizontal" Spacing="6" Margin="0,0,0,8">
+            <Button Content="Todos" Classes="chip" Command="{Binding SetFilterCommand}" CommandParameter="Todos"/>
+            <Button Content="{Binding PendingCount, StringFormat='Pendentes ({0})'}" Classes="chip" Command="{Binding SetFilterCommand}" CommandParameter="Pendentes"/>
+            <Button Content="{Binding ApprovedCount, StringFormat='Aprovados ({0})'}" Classes="chip" Command="{Binding SetFilterCommand}" CommandParameter="Aprovados"/>
+          </StackPanel>
+          <ListBox Grid.Row="2" ItemsSource="{Binding FilteredSegments}" SelectedItem="{Binding SelectedSegment}" Background="#09090B" CornerRadius="6">
+            <ListBox.ItemTemplate>
+              <DataTemplate x:DataType="contracts:LocalizationSegment">
+                <Grid ColumnDefinitions="Auto,*" Margin="2,4">
+                  <TextBlock Text="{Binding Approved, StringFormat='{}[{0}]'}" Foreground="#6EE7B7" FontSize="11" Margin="0,2,8,0" VerticalAlignment="Top"/>
+                  <StackPanel Grid.Column="1" Spacing="2">
+                    <TextBlock Text="{Binding Key}" FontSize="12" FontWeight="SemiBold" TextTrimming="CharacterEllipsis"/>
+                    <TextBlock Text="{Binding SourceText}" FontSize="12" Foreground="#A1A1AA" TextTrimming="CharacterEllipsis"/>
+                  </StackPanel>
+                </Grid>
+              </DataTemplate>
+            </ListBox.ItemTemplate>
+          </ListBox>
+        </Grid>
+      </Border>
+
+      <!-- Editor Lado a Lado + Chips -->
+      <Grid Grid.Column="1" RowDefinitions="*,Auto">
+        <Grid ColumnDefinitions="*,*">
+          <!-- Original ZH + Chips de Placeholders -->
+          <Border Classes="panel" Margin="0,0,8,0">
+            <Grid RowDefinitions="Auto,*,Auto">
+              <StackPanel Spacing="2" Margin="0,0,0,8">
+                <TextBlock Text="Original (Chinês)" Classes="section"/>
+                <TextBlock Text="{Binding SelectedSegment.Key, TargetNullValue='Nenhum segmento selecionado'}" FontSize="11" Classes="secondary"/>
+              </StackPanel>
+              <TextBox Grid.Row="1" Text="{Binding SelectedSegment.SourceText, Mode=OneWay}" IsReadOnly="True" AcceptsReturn="True" TextWrapping="Wrap" VerticalContentAlignment="Top"/>
+              <StackPanel Grid.Row="2" Spacing="6" Margin="0,10,0,0">
+                <TextBlock Text="VARIÁVEIS / TAGS OBRIGATÓRIAS (clique para inserir)" Classes="caption"/>
+                <ItemsControl ItemsSource="{Binding DetectedPlaceholders}">
+                  <ItemsControl.ItemsPanel>
+                    <ItemsPanelTemplate><WrapPanel/></ItemsPanelTemplate>
+                  </ItemsControl.ItemsPanel>
+                  <ItemsControl.ItemTemplate>
+                    <DataTemplate x:DataType="x:String">
+                      <Button Content="{Binding}" Classes="chip" Margin="0,0,6,6"
+                              Command="{ReflectionBinding DataContext.InsertPlaceholderCommand, ElementName=WorkbenchRoot}"
+                              CommandParameter="{Binding}"/>
+                    </DataTemplate>
+                  </ItemsControl.ItemTemplate>
+                </ItemsControl>
+              </StackPanel>
+            </Grid>
+          </Border>
+
+          <!-- Traducao PT-BR + Glossario Canonico -->
+          <Border Grid.Column="1" Classes="panel" Margin="8,0,0,0">
+            <Grid RowDefinitions="Auto,*,Auto">
+              <StackPanel Spacing="2" Margin="0,0,0,8">
+                <TextBlock Text="Tradução (Português-BR)" Classes="section"/>
+                <TextBlock Text="Preserve variáveis ({PlayerName}, {0}) e tags &lt;color&gt;." FontSize="11" Classes="secondary"/>
+              </StackPanel>
+              <TextBox Grid.Row="1" Text="{Binding TranslationText}" AcceptsReturn="True" TextWrapping="Wrap" VerticalContentAlignment="Top" Watermark="Digite ou revise a tradução em português..."/>
+              <StackPanel Grid.Row="2" Spacing="6" Margin="0,10,0,0">
+                <TextBlock Text="GLOSSÁRIO CANÔNICO DETECTADO" Classes="caption"/>
+                <ScrollViewer MaxHeight="120">
+                  <ItemsControl ItemsSource="{Binding CanonicalTerms}">
+                    <ItemsControl.ItemTemplate>
+                      <DataTemplate x:DataType="contracts:GlossaryEntry">
+                        <Grid ColumnDefinitions="*,Auto" Margin="0,0,0,6">
+                          <StackPanel Spacing="1">
+                            <StackPanel Orientation="Horizontal" Spacing="8">
+                              <TextBlock Text="{Binding Zh}" FontWeight="SemiBold"/>
+                              <TextBlock Text="→" Classes="secondary"/>
+                              <TextBlock Text="{Binding PtBr}" Foreground="#6EE7B7" FontWeight="SemiBold"/>
+                            </StackPanel>
+                            <TextBlock Text="{Binding Pinyin}" FontSize="11" Classes="secondary"/>
+                          </StackPanel>
+                          <Button Grid.Column="1" Content="+ Inserir" Classes="chip"
+                                  Command="{ReflectionBinding DataContext.InsertGlossaryTermCommand, ElementName=WorkbenchRoot}"
+                                  CommandParameter="{Binding}"/>
+                        </Grid>
+                      </DataTemplate>
+                    </ItemsControl.ItemTemplate>
+                  </ItemsControl>
+                </ScrollViewer>
+              </StackPanel>
+            </Grid>
+          </Border>
+        </Grid>
+
+        <!-- Alertas de Validacao + Botao Aprovar -->
+        <StackPanel Grid.Row="1" Spacing="8" Margin="0,12,0,0">
+          <Border Classes="alertError" IsVisible="{Binding GlossaryWarnings, Converter={x:Static StringConverters.IsNotNullOrEmpty}}">
+            <TextBlock Text="{Binding GlossaryWarnings}" TextWrapping="Wrap" Foreground="#FCA5A5" FontSize="13"/>
+          </Border>
+          <Border Classes="alertError" IsVisible="{Binding ValidationError, Converter={x:Static StringConverters.IsNotNullOrEmpty}}">
+            <TextBlock Text="{Binding ValidationError}" TextWrapping="Wrap" Foreground="#FCA5A5" FontSize="13"/>
+          </Border>
+          <Grid ColumnDefinitions="*,Auto">
+            <TextBlock Text="Atalho: Ctrl + Enter para aprovar no cache local L0/L1 e avançar." FontSize="12" Classes="secondary" VerticalAlignment="Center"/>
+            <Button Grid.Column="1" Content="Aprovar e avançar   Ctrl+Enter" Classes="primary" Command="{Binding ApproveSegmentCommand}"/>
+          </Grid>
+        </StackPanel>
+      </Grid>
+    </Grid>
+  </Grid>
+</UserControl>

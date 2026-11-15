@@ -1,0 +1,21 @@
+{
+  "gameId": "herosadventure",
+  "displayName": "Hero's Adventure: Road to Passion (大侠立志传)",
+  "steamAppId": "1948980",
+  "executableName": "Hero's Adventure.exe",
+  "engine": "unity-il2cpp",
+  "loader": {
+    "type": "bepinex",
+    "version": "6.0.x",
+    "officialReleaseUrl": "https://github.com/BepInEx/BepInEx/releases",
+    "sha256": "0000000000000000000000000000000000000000000000000000000000000000"
+  },
+  "fontAsset": {
+    "name": "NotoSansCJK_SC_SDF",
+    "license": "SIL-OFL-1.1",
+    "downloadUrl": "https://cdn.daostudio.ai/fonts/notosans_cjk_sc_sdf.bundle",
+    "sha256": "0000000000000000000000000000000000000000000000000000000000000000"
+  },
+  "pluginVersion": "1.0.0",
+  "glossaryVersion": 1
+}

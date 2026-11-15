@@ -1,0 +1,410 @@
+[
+    {
+        "id":  "seed-001",
+        "key":  "dialogue.master.dao_heart",
+        "sourceText":  "{PlayerName}，坚定道心！",
+        "translatedText":  "{PlayerName}, mantenha firme o Coração do Dao!",
+        "approved":  true,
+        "context":  "dialogue"
+    },
+    {
+        "id":  "seed-002",
+        "key":  "technique.qi_gather",
+        "sourceText":  "灵气汇聚丹田。",
+        "translatedText":  "O Qi Espiritual se concentra no Dantian.",
+        "approved":  true,
+        "context":  "tooltip"
+    },
+    {
+        "id":  "seed-003",
+        "key":  "realm.qi_refining_early",
+        "sourceText":  "炼气初期",
+        "translatedText":  "Início do Refinamento de Qi",
+        "approved":  true,
+        "context":  "button"
+    },
+    {
+        "id":  "seed-004",
+        "key":  "ui.sect.join",
+        "sourceText":  "加入宗门需消耗{0}灵石。",
+        "translatedText":  "Ingressar na Seita consome {0} Pedras Espirituais.",
+        "approved":  true,
+        "context":  "dialogue"
+    },
+    {
+        "id":  "seed-005",
+        "key":  "combat.damage.richtext",
+        "sourceText":  "\u003ccolor=#FF4D4D\u003e功法\u003c/color\u003e造成{0}点伤害\\n",
+        "translatedText":  "\u003ccolor=#FF4D4D\u003eTécnica de Cultivo\u003c/color\u003e causa {0} de dano\\n",
+        "approved":  true,
+        "context":  "system_message"
+    },
+    {
+        "id":  "seed-006",
+        "key":  "ui.main.start",
+        "sourceText":  "开始游戏",
+        "translatedText":  "Iniciar Jogo",
+        "approved":  true,
+        "context":  "button"
+    },
+    {
+        "id":  "seed-007",
+        "key":  "ui.main.continue",
+        "sourceText":  "继续游戏",
+        "translatedText":  "Continuar Jogo",
+        "approved":  true,
+        "context":  "button"
+    },
+    {
+        "id":  "seed-008",
+        "key":  "ui.character.create",
+        "sourceText":  "创建角色",
+        "translatedText":  "Criar Personagem",
+        "approved":  true,
+        "context":  "button"
+    },
+    {
+        "id":  "seed-009",
+        "key":  "ui.confirm",
+        "sourceText":  "确认",
+        "translatedText":  "Confirmar",
+        "approved":  true,
+        "context":  "button"
+    },
+    {
+        "id":  "seed-010",
+        "key":  "ui.cancel",
+        "sourceText":  "取消",
+        "translatedText":  "Cancelar",
+        "approved":  true,
+        "context":  "button"
+    },
+    {
+        "id":  "seed-011",
+        "key":  "character.destiny",
+        "sourceText":  "选择先天气运。",
+        "translatedText":  "Escolha seu Destino Inato.",
+        "approved":  true,
+        "context":  "tooltip"
+    },
+    {
+        "id":  "seed-012",
+        "key":  "character.insight",
+        "sourceText":  "悟性：{0}",
+        "translatedText":  "Compreensão: {0}",
+        "approved":  true,
+        "context":  "tooltip"
+    },
+    {
+        "id":  "seed-013",
+        "key":  "character.luck",
+        "sourceText":  "幸运：{0}",
+        "translatedText":  "Sorte: {0}",
+        "approved":  true,
+        "context":  "tooltip"
+    },
+    {
+        "id":  "seed-014",
+        "key":  "character.charisma",
+        "sourceText":  "魅力：{0}",
+        "translatedText":  "Carisma: {0}",
+        "approved":  true,
+        "context":  "tooltip"
+    },
+    {
+        "id":  "seed-015",
+        "key":  "character.lifespan",
+        "sourceText":  "寿元：{0}",
+        "translatedText":  "Longevidade: {0}",
+        "approved":  true,
+        "context":  "tooltip"
+    },
+    {
+        "id":  "seed-016",
+        "key":  "character.root",
+        "sourceText":  "灵根影响修炼。",
+        "translatedText":  "A Raiz Espiritual influencia a ação de Cultivar.",
+        "approved":  true,
+        "context":  "tooltip"
+    },
+    {
+        "id":  "seed-017",
+        "key":  "tutorial.meditate",
+        "sourceText":  "打坐，感受灵气。",
+        "translatedText":  "Meditar permite sentir o Qi Espiritual.",
+        "approved":  true,
+        "context":  "tooltip"
+    },
+    {
+        "id":  "seed-018",
+        "key":  "tutorial.realm",
+        "sourceText":  "你已进入炼气期。",
+        "translatedText":  "Você entrou no Refinamento de Qi.",
+        "approved":  true,
+        "context":  "system_message"
+    },
+    {
+        "id":  "seed-019",
+        "key":  "realm.qi_middle",
+        "sourceText":  "炼气中期",
+        "translatedText":  "Meio do Refinamento de Qi",
+        "approved":  true,
+        "context":  "button"
+    },
+    {
+        "id":  "seed-020",
+        "key":  "realm.qi_late",
+        "sourceText":  "炼气后期",
+        "translatedText":  "Fim do Refinamento de Qi",
+        "approved":  true,
+        "context":  "button"
+    },
+    {
+        "id":  "seed-021",
+        "key":  "realm.qi_perfect",
+        "sourceText":  "炼气大圆满",
+        "translatedText":  "Perfeição do Refinamento de Qi",
+        "approved":  true,
+        "context":  "button"
+    },
+    {
+        "id":  "seed-022",
+        "key":  "realm.breakthrough",
+        "sourceText":  "境界突破",
+        "translatedText":  "Avanço de Reino",
+        "approved":  true,
+        "context":  "button"
+    },
+    {
+        "id":  "seed-023",
+        "key":  "tutorial.foundation",
+        "sourceText":  "筑基期需要准备。",
+        "translatedText":  "O Estabelecimento de Fundação exige preparação.",
+        "approved":  true,
+        "context":  "dialogue"
+    },
+    {
+        "id":  "seed-024",
+        "key":  "foundation.heaven",
+        "sourceText":  "天道筑基",
+        "translatedText":  "Fundação do Dao Celestial",
+        "approved":  true,
+        "context":  "button"
+    },
+    {
+        "id":  "seed-025",
+        "key":  "foundation.earth",
+        "sourceText":  "地道筑基",
+        "translatedText":  "Fundação do Dao Terrestre",
+        "approved":  true,
+        "context":  "button"
+    },
+    {
+        "id":  "seed-026",
+        "key":  "foundation.human",
+        "sourceText":  "人道筑基",
+        "translatedText":  "Fundação do Dao Humano",
+        "approved":  true,
+        "context":  "button"
+    },
+    {
+        "id":  "seed-027",
+        "key":  "item.foundation_pill",
+        "sourceText":  "筑基丹",
+        "translatedText":  "Pílula de Fundação",
+        "approved":  true,
+        "context":  "item_name"
+    },
+    {
+        "id":  "seed-028",
+        "key":  "item.spirit_pill",
+        "sourceText":  "聚灵丹",
+        "translatedText":  "Pílula de Concentração Espiritual",
+        "approved":  true,
+        "context":  "item_name"
+    },
+    {
+        "id":  "seed-029",
+        "key":  "item.storage",
+        "sourceText":  "储物戒",
+        "translatedText":  "Anel de Armazenamento",
+        "approved":  true,
+        "context":  "item_name"
+    },
+    {
+        "id":  "seed-030",
+        "key":  "item.lifebound",
+        "sourceText":  "本命法宝",
+        "translatedText":  "Tesouro Vinculado à Vida",
+        "approved":  true,
+        "context":  "item_name"
+    },
+    {
+        "id":  "seed-031",
+        "key":  "technique.movement",
+        "sourceText":  "身法帮助你躲避攻击。",
+        "translatedText":  "A Técnica de Movimento ajuda a evitar ataques.",
+        "approved":  true,
+        "context":  "tooltip"
+    },
+    {
+        "id":  "seed-032",
+        "key":  "technique.special",
+        "sourceText":  "绝技造成{0}点伤害。",
+        "translatedText":  "A Técnica Especial causa {0} de dano.",
+        "approved":  true,
+        "context":  "tooltip"
+    },
+    {
+        "id":  "seed-033",
+        "key":  "technique.divine",
+        "sourceText":  "神通需要满足施展条件。",
+        "translatedText":  "O Poder Divino exige condições para ser usado.",
+        "approved":  true,
+        "context":  "tooltip"
+    },
+    {
+        "id":  "seed-034",
+        "key":  "technique.mind",
+        "sourceText":  "心法提升灵力。",
+        "translatedText":  "O Método Mental aumenta a Energia Espiritual.",
+        "approved":  true,
+        "context":  "tooltip"
+    },
+    {
+        "id":  "seed-035",
+        "key":  "sect.welcome",
+        "sourceText":  "{PlayerName}，欢迎加入宗门。",
+        "translatedText":  "{PlayerName}, boas-vindas à Seita.",
+        "approved":  true,
+        "context":  "dialogue"
+    },
+    {
+        "id":  "seed-036",
+        "key":  "sect.elder",
+        "sourceText":  "长老正在等你。",
+        "translatedText":  "O Ancião está esperando você.",
+        "approved":  true,
+        "context":  "dialogue"
+    },
+    {
+        "id":  "seed-037",
+        "key":  "sect.leader",
+        "sourceText":  "宗主召见{PlayerName}。",
+        "translatedText":  "O Líder da Seita convoca {PlayerName}.",
+        "approved":  true,
+        "context":  "dialogue"
+    },
+    {
+        "id":  "seed-038",
+        "key":  "sect.outer",
+        "sourceText":  "你现在是外门弟子。",
+        "translatedText":  "Agora você é Discípulo Externo.",
+        "approved":  true,
+        "context":  "dialogue"
+    },
+    {
+        "id":  "seed-039",
+        "key":  "sect.inner",
+        "sourceText":  "内门弟子可以接受新的任务。",
+        "translatedText":  "Um Discípulo Interno pode aceitar novas missões.",
+        "approved":  true,
+        "context":  "dialogue"
+    },
+    {
+        "id":  "seed-040",
+        "key":  "sect.true",
+        "sourceText":  "真传弟子需要继续修炼。",
+        "translatedText":  "Um Discípulo da Transmissão Verdadeira precisa continuar a Cultivar.",
+        "approved":  true,
+        "context":  "dialogue"
+    },
+    {
+        "id":  "seed-041",
+        "key":  "sect.contribution",
+        "sourceText":  "贡献：{0}",
+        "translatedText":  "Contribuição: {0}",
+        "approved":  true,
+        "context":  "tooltip"
+    },
+    {
+        "id":  "seed-042",
+        "key":  "combat.energy",
+        "sourceText":  "灵力不足。",
+        "translatedText":  "Energia Espiritual insuficiente.",
+        "approved":  true,
+        "context":  "system_message"
+    },
+    {
+        "id":  "seed-043",
+        "key":  "combat.vitality",
+        "sourceText":  "体力恢复{0}点。",
+        "translatedText":  "Vitalidade recuperada: {0}.",
+        "approved":  true,
+        "context":  "system_message"
+    },
+    {
+        "id":  "seed-044",
+        "key":  "combat.reward",
+        "sourceText":  "{PlayerName}获得{0}灵石。",
+        "translatedText":  "{PlayerName} recebeu {0} unidades de Pedra Espiritual.",
+        "approved":  true,
+        "context":  "system_message"
+    },
+    {
+        "id":  "seed-045",
+        "key":  "combat.warning",
+        "sourceText":  "\u003ccolor=#FFCC00\u003e天劫\u003c/color\u003e即将降临！",
+        "translatedText":  "A \u003ccolor=#FFCC00\u003eTribulação Celestial\u003c/color\u003e está chegando!",
+        "approved":  true,
+        "context":  "system_message"
+    },
+    {
+        "id":  "seed-046",
+        "key":  "tutorial.inner_demon",
+        "sourceText":  "坚定道心，抵御心魔。",
+        "translatedText":  "Fortaleça o Coração do Dao e resista ao Demônio Interior.",
+        "approved":  true,
+        "context":  "dialogue"
+    },
+    {
+        "id":  "seed-047",
+        "key":  "tutorial.causality",
+        "sourceText":  "因果相连，谨慎选择。",
+        "translatedText":  "Causa e Efeito estão ligados; escolha com cuidado.",
+        "approved":  true,
+        "context":  "dialogue"
+    },
+    {
+        "id":  "seed-048",
+        "key":  "world.teleport",
+        "sourceText":  "传送阵需要{0}灵石。",
+        "translatedText":  "A Formação de Teletransporte exige {0} unidades de Pedra Espiritual.",
+        "approved":  true,
+        "context":  "tooltip"
+    },
+    {
+        "id":  "seed-049",
+        "key":  "character.rewrite",
+        "sourceText":  "逆天改命",
+        "translatedText":  "Desafiar o Destino",
+        "approved":  true,
+        "context":  "button"
+    },
+    {
+        "id":  "seed-050",
+        "key":  "combat.rich_reward",
+        "sourceText":  "\u003ccolor=#66FF99\u003e{PlayerName}\u003c/color\u003e获得{0}灵石。\\n确认",
+        "translatedText":  "\u003ccolor=#66FF99\u003e{PlayerName}\u003c/color\u003e recebeu {0} unidades de Pedra Espiritual.\\nConfirmar",
+        "approved":  true,
+        "context":  "system_message"
+    },
+    {
+        "id":  "seed-051",
+        "key":  "tutorial.multiline",
+        "sourceText":  "打坐\n灵气汇聚丹田。",
+        "translatedText":  "Meditar\nO Qi Espiritual se concentra no Dantian.",
+        "approved":  true,
+        "context":  "tooltip"
+    }
+]

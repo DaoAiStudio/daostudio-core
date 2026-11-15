@@ -1,0 +1,63 @@
+﻿<Window xmlns="https://github.com/avaloniaui" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:vm="using:DaoStudio.Desktop.ViewModels" xmlns:views="using:DaoStudio.Desktop.Views"
+        xmlns:contracts="using:DaoStudio.Contracts"
+        x:Class="DaoStudio.Desktop.MainWindow" x:DataType="vm:MainWindowViewModel" x:CompileBindings="True"
+        Icon="avares://DaoStudio.Desktop/Assets/daostudio-logo.ico"
+        Title="DaoStudio AI — Tour, In-Game Translate, CAT &amp; Novels/Mangás" Width="1380" Height="880" MinWidth="1040" MinHeight="720">
+  <Window.DataTemplates>
+    <DataTemplate DataType="vm:TourViewModel"><views:TourView/></DataTemplate>
+    <DataTemplate DataType="vm:LauncherViewModel"><views:LauncherView/></DataTemplate>
+    <DataTemplate DataType="vm:WorkbenchViewModel"><views:WorkbenchView/></DataTemplate>
+    <DataTemplate DataType="vm:MaterialsViewModel"><views:MaterialsView/></DataTemplate>
+  </Window.DataTemplates>
+  <Grid ColumnDefinitions="284,*">
+    <Border Background="#18181B" BorderBrush="#27272A" BorderThickness="0,0,1,0" Padding="18,20">
+      <DockPanel LastChildFill="True">
+        <StackPanel DockPanel.Dock="Top" Spacing="18">
+          <StackPanel Orientation="Horizontal" Spacing="12">
+            <Border CornerRadius="10" BorderBrush="#10B981" BorderThickness="1" Background="#09090B" Width="44" Height="44" ClipToBounds="True">
+              <Image Source="avares://DaoStudio.Desktop/Assets/daostudio-logo.png" Width="42" Height="42" Stretch="UniformToFill"/>
+            </Border>
+            <StackPanel VerticalAlignment="Center" Spacing="1">
+              <TextBlock Text="DaoStudio AI" FontSize="22" FontWeight="Bold" Foreground="#6EE7B7"/>
+              <TextBlock Text="Multi-Module Translation Core" FontSize="11" Classes="secondary"/>
+            </StackPanel>
+          </StackPanel>
+
+          <StackPanel Spacing="6">
+            <TextBlock Text="UNIVERSO / JOGO ATIVO" Classes="caption"/>
+            <ComboBox ItemsSource="{Binding AvailableGames}" SelectedItem="{Binding SelectedGame}" HorizontalAlignment="Stretch">
+              <ComboBox.ItemTemplate>
+                <DataTemplate x:DataType="contracts:GameProfileManifest">
+                  <StackPanel Spacing="1">
+                    <TextBlock Text="{Binding DisplayName}" FontWeight="SemiBold" TextTrimming="CharacterEllipsis"/>
+                    <TextBlock Text="{Binding Engine}" FontSize="11" Foreground="#A1A1AA"/>
+                  </StackPanel>
+                </DataTemplate>
+              </ComboBox.ItemTemplate>
+            </ComboBox>
+          </StackPanel>
+
+          <StackPanel Spacing="8">
+            <TextBlock Text="INÍCIO &amp; MÓDULOS" Classes="caption"/>
+            <Button Content="★  Painel Inicial (Tour)" Classes="nav" Classes.navActive="{Binding IsTourActive}" Command="{Binding ShowTourCommand}" HorizontalAlignment="Stretch"/>
+            <Button Content="Módulo 1 • In-Game Translate" Classes="nav" Classes.navActive="{Binding IsLauncherActive}" Command="{Binding ShowLauncherCommand}" HorizontalAlignment="Stretch"/>
+            <Button Content="Módulo 2 • Studio CAT (Jogos)" Classes="nav" Classes.navActive="{Binding IsWorkbenchActive}" Command="{Binding ShowWorkbenchCommand}" HorizontalAlignment="Stretch"/>
+            <Button Content="Módulo 3 • Novels &amp; Mangás" Classes="nav" Classes.navActive="{Binding IsMaterialsActive}" Command="{Binding ShowMaterialsCommand}" HorizontalAlignment="Stretch"/>
+          </StackPanel>
+        </StackPanel>
+
+        <Border DockPanel.Dock="Bottom" VerticalAlignment="Bottom" Classes="metric">
+          <StackPanel Spacing="6">
+            <TextBlock Text="STATUS ATUAL" Classes="caption"/>
+            <TextBlock Text="{Binding Tour.InferredPersonaBadge}" FontSize="12" FontWeight="SemiBold" Foreground="#A7F3D0" TextWrapping="Wrap"/>
+            <TextBlock Text="{Binding SelectedGame.DisplayName}" FontWeight="SemiBold" TextWrapping="Wrap"/>
+            <TextBlock Text="{Binding Launcher.DetectionStatusBadge}" FontSize="12" Foreground="#6EE7B7" TextWrapping="Wrap"/>
+            <TextBlock Text="{Binding Launcher.BridgeStatus, StringFormat='Bridge: {0}'}" FontSize="12" Classes="secondary" TextWrapping="Wrap"/>
+          </StackPanel>
+        </Border>
+      </DockPanel>
+    </Border>
+    <ContentControl Grid.Column="1" Content="{Binding CurrentView}" Margin="24"/>
+  </Grid>
+</Window>

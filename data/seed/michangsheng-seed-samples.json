@@ -1,0 +1,10 @@
+[
+  { "id": "mcs-001", "key": "ui.cultivate.seclusion", "sourceText": "{PlayerName}闭关修炼了{0}年。", "translatedText": "{PlayerName} permaneceu em Cultivo em Reclusão por {0} anos.", "approved": true, "context": "system_message" },
+  { "id": "mcs-002", "key": "realm.qi_condensation", "sourceText": "当前境界：炼气期", "translatedText": "Reino atual: Refinamento de Qi", "approved": true, "context": "tooltip" },
+  { "id": "mcs-003", "key": "realm.foundation", "sourceText": "突破至筑基期需要稳固灵根。", "translatedText": "Avançar para o Estabelecimento de Fundação exige estabilizar sua Raiz Espiritual.", "approved": true, "context": "dialogue" },
+  { "id": "mcs-004", "key": "realm.golden_core", "sourceText": "<color=#FFD700>金丹期</color>寿元暴涨。", "translatedText": "A Expectativa de Vida dispara ao alcançar <color=#FFD700>Núcleo Dourado</color>.", "approved": true, "context": "tooltip" },
+  { "id": "mcs-005", "key": "realm.nascent_soul", "sourceText": "元婴期修士神识笼罩万里。", "translatedText": "O Sentido Divino de um cultivador de Alma Nascente cobre dez mil li.", "approved": true, "context": "dialogue" },
+  { "id": "mcs-006", "key": "alchemy.recipe", "sourceText": "领悟新丹方需要高度悟道。", "translatedText": "Dominar uma nova Receita de Alquimia exige elevada Compreensão do Dao.", "approved": true, "context": "tooltip" },
+  { "id": "mcs-007", "key": "ui.stat.lifespan", "sourceText": "剩余寿元：{0}年", "translatedText": "Expectativa de Vida restante: {0} anos", "approved": true, "context": "button" },
+  { "id": "mcs-008", "key": "ui.sense.scan", "sourceText": "{PlayerName}释放神识查探四周。", "translatedText": "{PlayerName} liberou seu Sentido Divino para sondar os arredores.", "approved": true, "context": "dialogue" }
+]
