@@ -1,0 +1,12 @@
+[
+  { "zh": "剑法", "pinyin": "Jiàn Fǎ", "ptBr": "Esgrima", "en": "Swordsmanship", "es": "Esgrima", "category": "technique", "forbiddenLiterals": ["Lei da Espada"], "maxChars": 24 },
+  { "zh": "心法", "pinyin": "Xīn Fǎ", "ptBr": "Cultivo Mental", "en": "Mental Cultivation", "es": "Cultivo Mental", "category": "technique", "forbiddenLiterals": ["Lei do Coração"], "maxChars": 28 },
+  { "zh": "真气", "pinyin": "Zhēn Qì", "ptBr": "Qi Verdadeiro", "en": "True Qi", "es": "Qi Verdadero", "category": "energy", "forbiddenLiterals": ["Ar Real"], "maxChars": 26 },
+  { "zh": "武林", "pinyin": "Wǔ Lín", "ptBr": "Mundo Marcial", "en": "Martial World", "es": "Mundo Marcial", "category": "world", "forbiddenLiterals": ["Floresta de Guerra"], "maxChars": 28 },
+  { "zh": "经脉", "pinyin": "Jīng Mài", "ptBr": "Meridianos", "en": "Meridians", "es": "Meridianos", "category": "anatomy", "forbiddenLiterals": ["Pulso Clássico"], "maxChars": 24 },
+  { "zh": "经络", "pinyin": "Jīng Luò", "ptBr": "Canais de Qi", "en": "Acupoints", "es": "Canales de Qi", "category": "anatomy", "forbiddenLiterals": ["Rede Clássica"], "maxChars": 24 },
+  { "zh": "内力", "pinyin": "Nèi Lì", "ptBr": "Força Interna", "en": "Inner Strength", "es": "Fuerza Interna", "category": "attribute", "forbiddenLiterals": ["Poder de Dentro"], "maxChars": 26 },
+  { "zh": "宗门", "pinyin": "Zōng Mén", "ptBr": "Seita", "en": "Sect", "es": "Secta", "category": "faction", "forbiddenLiterals": ["Porta Ancestral"], "maxChars": 22 },
+  { "zh": "绝学", "pinyin": "Jué Xué", "ptBr": "Arte Suprema", "en": "Ultimate Art", "es": "Arte Supremo", "category": "technique", "forbiddenLiterals": ["Estudo Cortado"], "maxChars": 26 },
+  { "zh": "切磋", "pinyin": "Qiē Cuō", "ptBr": "Duelo Amistoso", "en": "Sparring", "es": "Duelo Amistoso", "category": "mechanic", "forbiddenLiterals": ["Cortar e Esfregar"], "maxChars": 28 }
+]

@@ -1,0 +1,21 @@
+{
+  "gameId": "guigubahuang",
+  "displayName": "Tale of Immortal (鬼谷八荒)",
+  "steamAppId": "1468810",
+  "executableName": "guigubahuang.exe",
+  "engine": "unity-il2cpp",
+  "loader": {
+    "type": "melonloader",
+    "version": "0.6.x",
+    "officialReleaseUrl": "https://github.com/LavaGang/MelonLoader/releases/download/v0.6.6/MelonLoader.x64.zip",
+    "sha256": "0000000000000000000000000000000000000000000000000000000000000000"
+  },
+  "fontAsset": {
+    "name": "NotoSansCJK_SC_SDF",
+    "license": "SIL-OFL-1.1",
+    "downloadUrl": "https://cdn.daostudio.ai/fonts/notosans_cjk_sc_sdf.bundle",
+    "sha256": "0000000000000000000000000000000000000000000000000000000000000000"
+  },
+  "pluginVersion": "1.0.0",
+  "glossaryVersion": 1
+}

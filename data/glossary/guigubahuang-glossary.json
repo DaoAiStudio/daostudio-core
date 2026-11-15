@@ -1,0 +1,789 @@
+[
+    {
+        "zh":  "炼气期",
+        "pinyin":  "Liàn Qì Qī",
+        "ptBr":  "Refinamento de Qi",
+        "en":  "Qi Refining",
+        "es":  "Refinamiento de Qi",
+        "category":  "cultivation_realm",
+        "forbiddenLiterals":  [
+                                  "Refinamento de Ar",
+                                  "Refinamento de Gás",
+                                  "Gas Refining"
+                              ],
+        "maxChars":  28
+    },
+    {
+        "zh":  "筑基期",
+        "pinyin":  "Zhù Jī Qī",
+        "ptBr":  "Estabelecimento de Fundação",
+        "en":  "Foundation Establishment",
+        "es":  "Establecimiento de Fundación",
+        "category":  "cultivation_realm",
+        "forbiddenLiterals":  [
+                                  "Construção de Base",
+                                  "Alicerce"
+                              ],
+        "maxChars":  34
+    },
+    {
+        "zh":  "结晶期",
+        "pinyin":  "Jié Jīng Qī",
+        "ptBr":  "Cristalização",
+        "en":  "Qi Condensation",
+        "es":  "Cristalización",
+        "category":  "cultivation_realm",
+        "forbiddenLiterals":  [
+                                  "Congelamento",
+                                  "Formação de Gelo"
+                              ],
+        "maxChars":  28
+    },
+    {
+        "zh":  "金丹期",
+        "pinyin":  "Jīn Dān Qī",
+        "ptBr":  "Núcleo Dourado",
+        "en":  "Golden Core",
+        "es":  "Núcleo Dorado",
+        "category":  "cultivation_realm",
+        "forbiddenLiterals":  [
+                                  "Pílula de Ouro",
+                                  "Comprimido Dourado",
+                                  "Gold Pill"
+                              ],
+        "maxChars":  24
+    },
+    {
+        "zh":  "具灵期",
+        "pinyin":  "Jù Líng Qī",
+        "ptBr":  "Manifestação Espiritual",
+        "en":  "Spirit Sight",
+        "es":  "Manifestación Espiritual",
+        "category":  "cultivation_realm",
+        "forbiddenLiterals":  [
+                                  "Ferramenta Espiritual",
+                                  "Spirit Tool"
+                              ],
+        "maxChars":  30
+    },
+    {
+        "zh":  "元婴期",
+        "pinyin":  "Yuán Yīng Qī",
+        "ptBr":  "Alma Nascente",
+        "en":  "Nascent Soul",
+        "es":  "Alma Naciente",
+        "category":  "cultivation_realm",
+        "forbiddenLiterals":  [
+                                  "Bebê Original",
+                                  "Feto Primordial",
+                                  "Bebê de Ouro"
+                              ],
+        "maxChars":  24
+    },
+    {
+        "zh":  "化神期",
+        "pinyin":  "Huà Shén Qī",
+        "ptBr":  "Transformação Divina",
+        "en":  "Deity Transformation",
+        "es":  "Transformación Divina",
+        "category":  "cultivation_realm",
+        "forbiddenLiterals":  [
+                                  "Química de Deus",
+                                  "God Chemistry"
+                              ],
+        "maxChars":  28
+    },
+    {
+        "zh":  "丹田",
+        "pinyin":  "Dān Tián",
+        "ptBr":  "Dantian",
+        "en":  "Dantian",
+        "es":  "Dantian",
+        "category":  "anatomy",
+        "forbiddenLiterals":  [
+                                  "Campo de Cinábrio",
+                                  "Campo Vermelho",
+                                  "Red Field"
+                              ],
+        "maxChars":  16
+    },
+    {
+        "zh":  "道心",
+        "pinyin":  "Dào Xīn",
+        "ptBr":  "Coração do Dao",
+        "en":  "Dao Heart",
+        "es":  "Corazón del Dao",
+        "category":  "concept",
+        "forbiddenLiterals":  [
+                                  "Coração da Rua",
+                                  "Coração do Caminho",
+                                  "Street Heart"
+                              ],
+        "maxChars":  24
+    },
+    {
+        "zh":  "道",
+        "pinyin":  "Dào",
+        "ptBr":  "Dao",
+        "en":  "Dao",
+        "es":  "Dao",
+        "category":  "concept",
+        "forbiddenLiterals":  [
+                                  "Estrada"
+                              ],
+        "maxChars":  12
+    },
+    {
+        "zh":  "灵气",
+        "pinyin":  "Líng Qì",
+        "ptBr":  "Qi Espiritual",
+        "en":  "Spiritual Qi",
+        "es":  "Qi Espiritual",
+        "category":  "energy",
+        "forbiddenLiterals":  [
+                                  "Ar Inteligente",
+                                  "Gás Fantasma",
+                                  "Smart Air"
+                              ],
+        "maxChars":  22
+    },
+    {
+        "zh":  "功法",
+        "pinyin":  "Gōng Fǎ",
+        "ptBr":  "Técnica de Cultivo",
+        "en":  "Cultivation Technique",
+        "es":  "Técnica de Cultivo",
+        "category":  "combat_skill",
+        "forbiddenLiterals":  [
+                                  "Método de Trabalho",
+                                  "Work Method"
+                              ],
+        "maxChars":  26
+    },
+    {
+        "zh":  "武技",
+        "pinyin":  "Wǔ Jì",
+        "ptBr":  "Arte Marcial",
+        "en":  "Martial Art",
+        "es":  "Arte Marcial",
+        "category":  "combat_skill",
+        "forbiddenLiterals":  [
+                                  "Habilidade Militar"
+                              ],
+        "maxChars":  22
+    },
+    {
+        "zh":  "宗门",
+        "pinyin":  "Zōng Mén",
+        "ptBr":  "Seita",
+        "en":  "Sect",
+        "es":  "Secta",
+        "category":  "faction",
+        "forbiddenLiterals":  [
+                                  "Porta do Ancestral",
+                                  "Ancestor Door"
+                              ],
+        "maxChars":  18
+    },
+    {
+        "zh":  "突破",
+        "pinyin":  "Tū Pò",
+        "ptBr":  "Avanço de Reino",
+        "en":  "Breakthrough",
+        "es":  "Avance de Reino",
+        "category":  "cultivation_action",
+        "forbiddenLiterals":  [
+                                  "Quebra Física"
+                              ],
+        "maxChars":  24
+    },
+    {
+        "zh":  "灵石",
+        "pinyin":  "Líng Shí",
+        "ptBr":  "Pedra Espiritual",
+        "en":  "Spirit Stone",
+        "es":  "Piedra Espiritual",
+        "category":  "item",
+        "forbiddenLiterals":  [
+                                  "Pedra Fantasma",
+                                  "Rocha Inteligente"
+                              ],
+        "maxChars":  24
+    },
+    {
+        "zh":  "炼气初期",
+        "pinyin":  "Liàn Qì Chū Qī",
+        "ptBr":  "Início do Refinamento de Qi",
+        "en":  "Early Qi Refining",
+        "es":  "Inicio del Refinamiento de Qi",
+        "category":  "cultivation_realm",
+        "forbiddenLiterals":  [
+
+                              ],
+        "maxChars":  29
+    },
+    {
+        "zh":  "炼气中期",
+        "pinyin":  "Liàn Qì Zhōng Qī",
+        "ptBr":  "Meio do Refinamento de Qi",
+        "en":  "Middle Qi Refining",
+        "es":  "Mitad del Refinamiento de Qi",
+        "category":  "cultivation_realm",
+        "forbiddenLiterals":  [
+
+                              ],
+        "maxChars":  28
+    },
+    {
+        "zh":  "炼气后期",
+        "pinyin":  "Liàn Qì Hòu Qī",
+        "ptBr":  "Fim do Refinamento de Qi",
+        "en":  "Late Qi Refining",
+        "es":  "Final del Refinamiento de Qi",
+        "category":  "cultivation_realm",
+        "forbiddenLiterals":  [
+
+                              ],
+        "maxChars":  28
+    },
+    {
+        "zh":  "炼气大圆满",
+        "pinyin":  "Liàn Qì Dà Yuán Mǎn",
+        "ptBr":  "Perfeição do Refinamento de Qi",
+        "en":  "Perfect Qi Refining",
+        "es":  "Perfección del Refinamiento de Qi",
+        "category":  "cultivation_realm",
+        "forbiddenLiterals":  [
+
+                              ],
+        "maxChars":  33
+    },
+    {
+        "zh":  "天道筑基",
+        "pinyin":  "Tiān Dào Zhù Jī",
+        "ptBr":  "Fundação do Dao Celestial",
+        "en":  "Heavenly Dao Foundation",
+        "es":  "Fundación del Dao Celestial",
+        "category":  "cultivation_realm",
+        "forbiddenLiterals":  [
+
+                              ],
+        "maxChars":  27
+    },
+    {
+        "zh":  "地道筑基",
+        "pinyin":  "Dì Dào Zhù Jī",
+        "ptBr":  "Fundação do Dao Terrestre",
+        "en":  "Earthly Dao Foundation",
+        "es":  "Fundación del Dao Terrestre",
+        "category":  "cultivation_realm",
+        "forbiddenLiterals":  [
+
+                              ],
+        "maxChars":  27
+    },
+    {
+        "zh":  "人道筑基",
+        "pinyin":  "Rén Dào Zhù Jī",
+        "ptBr":  "Fundação do Dao Humano",
+        "en":  "Human Dao Foundation",
+        "es":  "Fundación del Dao Humano",
+        "category":  "cultivation_realm",
+        "forbiddenLiterals":  [
+
+                              ],
+        "maxChars":  24
+    },
+    {
+        "zh":  "悟道期",
+        "pinyin":  "Wù Dào Qī",
+        "ptBr":  "Iluminação do Dao",
+        "en":  "Enlightenment",
+        "es":  "Iluminación del Dao",
+        "category":  "cultivation_realm",
+        "forbiddenLiterals":  [
+
+                              ],
+        "maxChars":  24
+    },
+    {
+        "zh":  "羽化期",
+        "pinyin":  "Yǔ Huà Qī",
+        "ptBr":  "Ascensão",
+        "en":  "Reborn",
+        "es":  "Ascensión",
+        "category":  "cultivation_realm",
+        "forbiddenLiterals":  [
+
+                              ],
+        "maxChars":  24
+    },
+    {
+        "zh":  "登仙期",
+        "pinyin":  "Dēng Xiān Qī",
+        "ptBr":  "Imortalidade",
+        "en":  "Transcendent",
+        "es":  "Inmortalidad",
+        "category":  "cultivation_realm",
+        "forbiddenLiterals":  [
+
+                              ],
+        "maxChars":  24
+    },
+    {
+        "zh":  "宗主",
+        "pinyin":  "Zōng Zhǔ",
+        "ptBr":  "Líder da Seita",
+        "en":  "Sect Leader",
+        "es":  "Líder de la Secta",
+        "category":  "faction_rank",
+        "forbiddenLiterals":  [
+
+                              ],
+        "maxChars":  24
+    },
+    {
+        "zh":  "长老",
+        "pinyin":  "Zhǎng Lǎo",
+        "ptBr":  "Ancião",
+        "en":  "Elder",
+        "es":  "Anciano",
+        "category":  "faction_rank",
+        "forbiddenLiterals":  [
+
+                              ],
+        "maxChars":  24
+    },
+    {
+        "zh":  "真传弟子",
+        "pinyin":  "Zhēn Chuán Dì Zǐ",
+        "ptBr":  "Discípulo da Transmissão Verdadeira",
+        "en":  "True Disciple",
+        "es":  "Discípulo de la Transmisión Verdadera",
+        "category":  "faction_rank",
+        "forbiddenLiterals":  [
+
+                              ],
+        "maxChars":  37
+    },
+    {
+        "zh":  "内门弟子",
+        "pinyin":  "Nèi Mén Dì Zǐ",
+        "ptBr":  "Discípulo Interno",
+        "en":  "Inner Disciple",
+        "es":  "Discípulo Interno",
+        "category":  "faction_rank",
+        "forbiddenLiterals":  [
+
+                              ],
+        "maxChars":  24
+    },
+    {
+        "zh":  "外门弟子",
+        "pinyin":  "Wài Mén Dì Zǐ",
+        "ptBr":  "Discípulo Externo",
+        "en":  "Outer Disciple",
+        "es":  "Discípulo Externo",
+        "category":  "faction_rank",
+        "forbiddenLiterals":  [
+
+                              ],
+        "maxChars":  24
+    },
+    {
+        "zh":  "灵根",
+        "pinyin":  "Líng Gēn",
+        "ptBr":  "Raiz Espiritual",
+        "en":  "Spiritual Root",
+        "es":  "Raíz Espiritual",
+        "category":  "attribute",
+        "forbiddenLiterals":  [
+
+                              ],
+        "maxChars":  24
+    },
+    {
+        "zh":  "本命法宝",
+        "pinyin":  "Běn Mìng Fǎ Bǎo",
+        "ptBr":  "Tesouro Vinculado à Vida",
+        "en":  "Lifebound Artifact",
+        "es":  "Tesoro Vinculado a la Vida",
+        "category":  "item",
+        "forbiddenLiterals":  [
+
+                              ],
+        "maxChars":  26
+    },
+    {
+        "zh":  "天劫",
+        "pinyin":  "Tiān Jié",
+        "ptBr":  "Tribulação Celestial",
+        "en":  "Heavenly Tribulation",
+        "es":  "Tribulación Celestial",
+        "category":  "concept",
+        "forbiddenLiterals":  [
+
+                              ],
+        "maxChars":  24
+    },
+    {
+        "zh":  "心魔",
+        "pinyin":  "Xīn Mó",
+        "ptBr":  "Demônio Interior",
+        "en":  "Inner Demon",
+        "es":  "Demonio Interior",
+        "category":  "concept",
+        "forbiddenLiterals":  [
+
+                              ],
+        "maxChars":  24
+    },
+    {
+        "zh":  "因果",
+        "pinyin":  "Yīn Guǒ",
+        "ptBr":  "Causa e Efeito",
+        "en":  "Cause and Effect",
+        "es":  "Causa y Efecto",
+        "category":  "concept",
+        "forbiddenLiterals":  [
+
+                              ],
+        "maxChars":  24
+    },
+    {
+        "zh":  "悟性",
+        "pinyin":  "Wù Xìng",
+        "ptBr":  "Compreensão",
+        "en":  "Insight",
+        "es":  "Comprensión",
+        "category":  "attribute",
+        "forbiddenLiterals":  [
+
+                              ],
+        "maxChars":  24
+    },
+    {
+        "zh":  "幸运",
+        "pinyin":  "Xìng Yùn",
+        "ptBr":  "Sorte",
+        "en":  "Luck",
+        "es":  "Suerte",
+        "category":  "attribute",
+        "forbiddenLiterals":  [
+
+                              ],
+        "maxChars":  24
+    },
+    {
+        "zh":  "魅力",
+        "pinyin":  "Mèi Lì",
+        "ptBr":  "Carisma",
+        "en":  "Charisma",
+        "es":  "Carisma",
+        "category":  "attribute",
+        "forbiddenLiterals":  [
+
+                              ],
+        "maxChars":  24
+    },
+    {
+        "zh":  "寿元",
+        "pinyin":  "Shòu Yuán",
+        "ptBr":  "Longevidade",
+        "en":  "Lifespan",
+        "es":  "Longevidad",
+        "category":  "attribute",
+        "forbiddenLiterals":  [
+
+                              ],
+        "maxChars":  24
+    },
+    {
+        "zh":  "气运",
+        "pinyin":  "Qì Yùn",
+        "ptBr":  "Destino",
+        "en":  "Destiny",
+        "es":  "Destino",
+        "category":  "attribute",
+        "forbiddenLiterals":  [
+
+                              ],
+        "maxChars":  24
+    },
+    {
+        "zh":  "身法",
+        "pinyin":  "Shēn Fǎ",
+        "ptBr":  "Técnica de Movimento",
+        "en":  "Movement Skill",
+        "es":  "Técnica de Movimiento",
+        "category":  "combat_skill",
+        "forbiddenLiterals":  [
+
+                              ],
+        "maxChars":  24
+    },
+    {
+        "zh":  "绝技",
+        "pinyin":  "Jué Jì",
+        "ptBr":  "Técnica Especial",
+        "en":  "Special Skill",
+        "es":  "Técnica Especial",
+        "category":  "combat_skill",
+        "forbiddenLiterals":  [
+
+                              ],
+        "maxChars":  24
+    },
+    {
+        "zh":  "神通",
+        "pinyin":  "Shén Tōng",
+        "ptBr":  "Poder Divino",
+        "en":  "Ultimate Skill",
+        "es":  "Poder Divino",
+        "category":  "combat_skill",
+        "forbiddenLiterals":  [
+
+                              ],
+        "maxChars":  24
+    },
+    {
+        "zh":  "心法",
+        "pinyin":  "Xīn Fǎ",
+        "ptBr":  "Método Mental",
+        "en":  "Mind Skill",
+        "es":  "Método Mental",
+        "category":  "combat_skill",
+        "forbiddenLiterals":  [
+
+                              ],
+        "maxChars":  24
+    },
+    {
+        "zh":  "筑基丹",
+        "pinyin":  "Zhù Jī Dān",
+        "ptBr":  "Pílula de Fundação",
+        "en":  "Foundation Pill",
+        "es":  "Píldora de Fundación",
+        "category":  "item",
+        "forbiddenLiterals":  [
+
+                              ],
+        "maxChars":  24
+    },
+    {
+        "zh":  "聚灵丹",
+        "pinyin":  "Jù Líng Dān",
+        "ptBr":  "Pílula de Concentração Espiritual",
+        "en":  "Spirit Gathering Pill",
+        "es":  "Píldora de Concentración Espiritual",
+        "category":  "item",
+        "forbiddenLiterals":  [
+
+                              ],
+        "maxChars":  35
+    },
+    {
+        "zh":  "储物戒",
+        "pinyin":  "Chǔ Wù Jiè",
+        "ptBr":  "Anel de Armazenamento",
+        "en":  "Storage Ring",
+        "es":  "Anillo de Almacenamiento",
+        "category":  "item",
+        "forbiddenLiterals":  [
+
+                              ],
+        "maxChars":  24
+    },
+    {
+        "zh":  "传送阵",
+        "pinyin":  "Chuán Sòng Zhèn",
+        "ptBr":  "Formação de Teletransporte",
+        "en":  "Teleportation Array",
+        "es":  "Formación de Teletransporte",
+        "category":  "world",
+        "forbiddenLiterals":  [
+
+                              ],
+        "maxChars":  27
+    },
+    {
+        "zh":  "境界突破",
+        "pinyin":  "Jìng Jiè Tū Pò",
+        "ptBr":  "Avanço de Reino",
+        "en":  "Realm Breakthrough",
+        "es":  "Avance de Reino",
+        "category":  "cultivation_action",
+        "forbiddenLiterals":  [
+
+                              ],
+        "maxChars":  24
+    },
+    {
+        "zh":  "开始游戏",
+        "pinyin":  "Kāi Shǐ Yóu Xì",
+        "ptBr":  "Iniciar Jogo",
+        "en":  "Start Game",
+        "es":  "Iniciar Juego",
+        "category":  "ui",
+        "forbiddenLiterals":  [
+
+                              ],
+        "maxChars":  24
+    },
+    {
+        "zh":  "确认",
+        "pinyin":  "Què Rèn",
+        "ptBr":  "Confirmar",
+        "en":  "Confirm",
+        "es":  "Confirmar",
+        "category":  "ui",
+        "forbiddenLiterals":  [
+
+                              ],
+        "maxChars":  24
+    },
+    {
+        "zh":  "取消",
+        "pinyin":  "Qǔ Xiāo",
+        "ptBr":  "Cancelar",
+        "en":  "Cancel",
+        "es":  "Cancelar",
+        "category":  "ui",
+        "forbiddenLiterals":  [
+
+                              ],
+        "maxChars":  24
+    },
+    {
+        "zh":  "继续游戏",
+        "pinyin":  "Jì Xù Yóu Xì",
+        "ptBr":  "Continuar Jogo",
+        "en":  "Continue Game",
+        "es":  "Continuar Juego",
+        "category":  "ui",
+        "forbiddenLiterals":  [
+
+                              ],
+        "maxChars":  24
+    },
+    {
+        "zh":  "创建角色",
+        "pinyin":  "Chuàng Jiàn Jué Sè",
+        "ptBr":  "Criar Personagem",
+        "en":  "Create Character",
+        "es":  "Crear Personaje",
+        "category":  "ui",
+        "forbiddenLiterals":  [
+
+                              ],
+        "maxChars":  24
+    },
+    {
+        "zh":  "先天气运",
+        "pinyin":  "Xiān Tiān Qì Yùn",
+        "ptBr":  "Destino Inato",
+        "en":  "Innate Destiny",
+        "es":  "Destino Innato",
+        "category":  "attribute",
+        "forbiddenLiterals":  [
+
+                              ],
+        "maxChars":  24
+    },
+    {
+        "zh":  "逆天改命",
+        "pinyin":  "Nì Tiān Gǎi Mìng",
+        "ptBr":  "Desafiar o Destino",
+        "en":  "Rewrite Destiny",
+        "es":  "Desafiar el Destino",
+        "category":  "concept",
+        "forbiddenLiterals":  [
+
+                              ],
+        "maxChars":  24
+    },
+    {
+        "zh":  "修炼",
+        "pinyin":  "Xiū Liàn",
+        "ptBr":  "Cultivar",
+        "en":  "Cultivate",
+        "es":  "Cultivar",
+        "category":  "cultivation_action",
+        "forbiddenLiterals":  [
+
+                              ],
+        "maxChars":  24
+    },
+    {
+        "zh":  "打坐",
+        "pinyin":  "Dǎ Zuò",
+        "ptBr":  "Meditar",
+        "en":  "Meditate",
+        "es":  "Meditar",
+        "category":  "cultivation_action",
+        "forbiddenLiterals":  [
+
+                              ],
+        "maxChars":  24
+    },
+    {
+        "zh":  "灵力",
+        "pinyin":  "Líng Lì",
+        "ptBr":  "Energia Espiritual",
+        "en":  "Spiritual Energy",
+        "es":  "Energía Espiritual",
+        "category":  "energy",
+        "forbiddenLiterals":  [
+
+                              ],
+        "maxChars":  24
+    },
+    {
+        "zh":  "体力",
+        "pinyin":  "Tǐ Lì",
+        "ptBr":  "Vitalidade",
+        "en":  "Vitality",
+        "es":  "Vitalidad",
+        "category":  "attribute",
+        "forbiddenLiterals":  [
+
+                              ],
+        "maxChars":  24
+    },
+    {
+        "zh":  "念力",
+        "pinyin":  "Niàn Lì",
+        "ptBr":  "Poder Mental",
+        "en":  "Focus",
+        "es":  "Poder Mental",
+        "category":  "attribute",
+        "forbiddenLiterals":  [
+
+                              ],
+        "maxChars":  24
+    },
+    {
+        "zh":  "声望",
+        "pinyin":  "Shēng Wàng",
+        "ptBr":  "Reputação",
+        "en":  "Reputation",
+        "es":  "Reputación",
+        "category":  "attribute",
+        "forbiddenLiterals":  [
+
+                              ],
+        "maxChars":  24
+    },
+    {
+        "zh":  "贡献",
+        "pinyin":  "Gòng Xiàn",
+        "ptBr":  "Contribuição",
+        "en":  "Contribution",
+        "es":  "Contribución",
+        "category":  "currency",
+        "forbiddenLiterals":  [
+
+                              ],
+        "maxChars":  24
+    }
+]

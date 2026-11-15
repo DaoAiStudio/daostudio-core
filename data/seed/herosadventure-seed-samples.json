@@ -1,0 +1,10 @@
+[
+  { "id": "ha-001", "key": "intro.jianghu", "sourceText": "{PlayerName}踏入了风云变幻的江湖。", "translatedText": "{PlayerName} entrou no turbulento Jianghu.", "approved": true, "context": "dialogue" },
+  { "id": "ha-002", "key": "skill.internal", "sourceText": "修炼这门内功可大幅提升内力上限。", "translatedText": "Praticar este Cultivo Interno aumenta muito seu limite de energia.", "approved": true, "context": "tooltip" },
+  { "id": "ha-003", "key": "skill.martial", "sourceText": "这本秘籍记载了失传已久的武功。", "translatedText": "Este Manual Secreto registra uma Arte Marcial perdida há eras.", "approved": true, "context": "tooltip" },
+  { "id": "ha-004", "key": "stat.chivalry", "sourceText": "行侠仗义增加了{0}点侠义与声望。", "translatedText": "Ajudar os necessitados concedeu {0} de Cavalheirismo e Renome.", "approved": true, "context": "system_message" },
+  { "id": "ha-005", "key": "sect.reputation", "sourceText": "你与该门派的好感度提升了{0}。", "translatedText": "Sua Afinidade com esta Seita Marcial aumentou em {0}.", "approved": true, "context": "system_message" },
+  { "id": "ha-006", "key": "skill.lightness", "sourceText": "施展轻功跃过<color=#6EE7B7>高墙</color>。", "translatedText": "Usou Técnica de Leveza para saltar o <color=#6EE7B7>muro alto</color>.", "approved": true, "context": "dialogue" },
+  { "id": "ha-007", "key": "location.inn", "sourceText": "在客栈休息一晚恢复体力。", "translatedText": "Descanse na Estalagem durante a noite para recuperar vigor.", "approved": true, "context": "button" },
+  { "id": "ha-008", "key": "ui.fame", "sourceText": "当前声望：{0}", "translatedText": "Renome atual: {0}", "approved": true, "context": "tooltip" }
+]

@@ -1,0 +1,10 @@
+[
+  { "id": "ws-001", "key": "story.martial_world", "sourceText": "{PlayerName}背负长剑独行武林。", "translatedText": "{PlayerName} percorreu o Mundo Marcial carregando sua espada longa.", "approved": true, "context": "dialogue" },
+  { "id": "ws-002", "key": "combat.sword", "sourceText": "此套剑法共有{0}式精妙变化。", "translatedText": "Este estilo de Esgrima possui {0} variações precisas.", "approved": true, "context": "tooltip" },
+  { "id": "ws-003", "key": "cultivation.mental", "sourceText": "运转心法凝聚体内真气与内力。", "translatedText": "Circule seu Cultivo Mental para condensar Qi Verdadeiro e Força Interna.", "approved": true, "context": "tooltip" },
+  { "id": "ws-004", "key": "meridian.open", "sourceText": "打通第{0}条经脉，贯通周身经络。", "translatedText": "Desbloqueie o {0}º dos Meridianos para conectar todos os Canais de Qi.", "approved": true, "context": "system_message" },
+  { "id": "ws-005", "key": "sect.ultimate", "sourceText": "<color=#38BDF8>宗门绝学</color>不可轻易外传。", "translatedText": "A <color=#38BDF8>Arte Suprema da Seita</color> não pode ser ensinada levianamente.", "approved": true, "context": "dialogue" },
+  { "id": "ws-006", "key": "action.spar", "sourceText": "邀请对方切磋武艺", "translatedText": "Convidar para Duelo Amistoso", "approved": true, "context": "button" },
+  { "id": "ws-007", "key": "stat.true_qi", "sourceText": "当前真气：{0}", "translatedText": "Qi Verdadeiro atual: {0}", "approved": true, "context": "tooltip" },
+  { "id": "ws-008", "key": "ui.sect_hall", "sourceText": "{PlayerName}已正式拜入剑派宗门。", "translatedText": "{PlayerName} ingressou oficialmente na Seita da Espada.", "approved": true, "context": "dialogue" }
+]

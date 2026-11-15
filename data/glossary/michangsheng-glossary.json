@@ -1,0 +1,12 @@
+[
+  { "zh": "炼气期", "pinyin": "Liàn Qì Qī", "ptBr": "Refinamento de Qi", "en": "Qi Condensation", "es": "Condensación de Qi", "category": "cultivation_realm", "forbiddenLiterals": ["Refinamento de Ar", "Gas"], "maxChars": 32 },
+  { "zh": "筑基期", "pinyin": "Zhù Jī Qī", "ptBr": "Estabelecimento de Fundação", "en": "Foundation Establishment", "es": "Establecimiento de Fundación", "category": "cultivation_realm", "forbiddenLiterals": ["Construção de Base"], "maxChars": 38 },
+  { "zh": "金丹期", "pinyin": "Jīn Dān Qī", "ptBr": "Núcleo Dourado", "en": "Golden Core", "es": "Núcleo Dorado", "category": "cultivation_realm", "forbiddenLiterals": ["Pílula de Ouro"], "maxChars": 28 },
+  { "zh": "元婴期", "pinyin": "Yuán Yīng Qī", "ptBr": "Alma Nascente", "en": "Nascent Soul", "es": "Alma Naciente", "category": "cultivation_realm", "forbiddenLiterals": ["Bebê Original"], "maxChars": 28 },
+  { "zh": "神识", "pinyin": "Shén Shí", "ptBr": "Sentido Divino", "en": "Divine Sense", "es": "Sentido Divino", "category": "attribute", "forbiddenLiterals": ["Conhecimento de Deus"], "maxChars": 28 },
+  { "zh": "悟道", "pinyin": "Wù Dào", "ptBr": "Compreensão do Dao", "en": "Dao Comprehension", "es": "Comprensión del Dao", "category": "mechanic", "forbiddenLiterals": ["Entendimento da Estrada"], "maxChars": 32 },
+  { "zh": "丹方", "pinyin": "Dān Fāng", "ptBr": "Receita de Alquimia", "en": "Alchemy Recipe", "es": "Receta de Alquimia", "category": "alchemy", "forbiddenLiterals": ["Quadrado de Pílula"], "maxChars": 32 },
+  { "zh": "灵根", "pinyin": "Líng Gēn", "ptBr": "Raiz Espiritual", "en": "Spiritual Root", "es": "Raíz Espiritual", "category": "anatomy", "forbiddenLiterals": ["Raiz de Espírito"], "maxChars": 28 },
+  { "zh": "寿元", "pinyin": "Shòu Yuán", "ptBr": "Expectativa de Vida", "en": "Lifespan", "es": "Esperanza de Vida", "category": "attribute", "forbiddenLiterals": ["Yuan de Vida"], "maxChars": 30 },
+  { "zh": "闭关", "pinyin": "Bì Guān", "ptBr": "Cultivo em Reclusão", "en": "Secluded Cultivation", "es": "Cultivo en Reclusión", "category": "mechanic", "forbiddenLiterals": ["Fechar Alfândega"], "maxChars": 32 }
+]

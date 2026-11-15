@@ -1,0 +1,12 @@
+[
+  { "zh": "内门弟子", "pinyin": "Nèi Mén Dì Zǐ", "ptBr": "Discípulo Interno", "en": "Inner Disciple", "es": "Discípulo Interno", "category": "sect", "forbiddenLiterals": ["Aluno da Porta de Dentro"], "maxChars": 30 },
+  { "zh": "外门弟子", "pinyin": "Wài Mén Dì Zǐ", "ptBr": "Discípulo Externo", "en": "Outer Disciple", "es": "Discípulo Externo", "category": "sect", "forbiddenLiterals": ["Aluno da Porta de Fora"], "maxChars": 30 },
+  { "zh": "灵气", "pinyin": "Líng Qì", "ptBr": "Qi Espiritual", "en": "Qi", "es": "Qi Espiritual", "category": "energy", "forbiddenLiterals": ["Ar Mágico"], "maxChars": 24 },
+  { "zh": "金丹", "pinyin": "Jīn Dān", "ptBr": "Núcleo Dourado", "en": "Golden Core", "es": "Núcleo Dorado", "category": "cultivation_realm", "forbiddenLiterals": ["Pílula de Ouro"], "maxChars": 26 },
+  { "zh": "风水", "pinyin": "Fēng Shuǐ", "ptBr": "Feng Shui", "en": "Feng Shui", "es": "Feng Shui", "category": "mechanic", "forbiddenLiterals": ["Vento e Água"], "maxChars": 22 },
+  { "zh": "心境", "pinyin": "Xīn Jìng", "ptBr": "Estado Mental", "en": "Mental State", "es": "Estado Mental", "category": "attribute", "forbiddenLiterals": ["Borda do Coração"], "maxChars": 26 },
+  { "zh": "炼宝", "pinyin": "Liàn Bǎo", "ptBr": "Refinar Artefato", "en": "Artifact Crafting", "es": "Forja de Artefactos", "category": "mechanic", "forbiddenLiterals": ["Cozinhar Tesouro"], "maxChars": 30 },
+  { "zh": "天劫", "pinyin": "Tiān Jié", "ptBr": "Tribulação Celestial", "en": "Heavenly Tribulation", "es": "Tribulación Celestial", "category": "phenomenon", "forbiddenLiterals": ["Roubo do Céu"], "maxChars": 32 },
+  { "zh": "功法", "pinyin": "Gōng Fǎ", "ptBr": "Lei de Cultivo", "en": "Law", "es": "Ley de Cultivo", "category": "technique", "forbiddenLiterals": ["Método de Trabalho"], "maxChars": 28 },
+  { "zh": "聚灵阵", "pinyin": "Jù Líng Zhèn", "ptBr": "Matriz de Concentração de Qi", "en": "Qi Gathering Array", "es": "Matriz de Concentración de Qi", "category": "building", "forbiddenLiterals": ["Formação de Juntar Fantasma"], "maxChars": 40 }
+]

@@ -1,0 +1,376 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:vm="using:DaoStudio.Desktop.ViewModels"
+             xmlns:contracts="using:DaoStudio.Contracts"
+             x:Name="TourRoot"
+             x:Class="DaoStudio.Desktop.Views.TourView"
+             x:DataType="vm:TourViewModel"
+             x:CompileBindings="True">
+  <Border Classes="tourBackdrop">
+    <Grid RowDefinitions="Auto,*,Auto">
+
+      <!-- Top Bar: Stage code + Label + Persona + Slim 2px Progress -->
+      <StackPanel Grid.Row="0" Spacing="12" Margin="0,0,0,20">
+        <Grid ColumnDefinitions="*,Auto">
+          <StackPanel Grid.Column="0" Orientation="Horizontal" Spacing="10" VerticalAlignment="Center">
+            <Border Classes="badgeNeutral">
+              <TextBlock Text="{Binding StageCodeLabel}" Classes="mono" FontSize="11" FontWeight="SemiBold" Foreground="#EAEAEF"/>
+            </Border>
+            <TextBlock Text="{Binding StageStepLabel}" FontSize="13" FontWeight="SemiBold" Foreground="#EAEAEF" VerticalAlignment="Center"/>
+          </StackPanel>
+          <StackPanel Grid.Column="1" Orientation="Horizontal" Spacing="10" VerticalAlignment="Center">
+            <Border Classes="badge">
+              <TextBlock Text="{Binding InferredPersonaBadge}" FontSize="11.5" FontWeight="SemiBold" Foreground="#34D399"/>
+            </Border>
+            <TextBlock Text="{Binding WizardProgressPercent, StringFormat='{}{0}%'}" Classes="mono" FontSize="11.5" Foreground="#5C5C6E" VerticalAlignment="Center"/>
+          </StackPanel>
+        </Grid>
+        <ProgressBar Minimum="0" Maximum="100" Value="{Binding WizardProgressPercent}" Height="2" Foreground="#10B981" Background="#13131B" CornerRadius="1"/>
+      </StackPanel>
+
+      <!-- Center Stage: Obsidian Focus Card -->
+      <ScrollViewer Grid.Row="1" VerticalScrollBarVisibility="Auto">
+        <Border VerticalAlignment="Center" HorizontalAlignment="Center" MaxWidth="820" MinWidth="600" Margin="0,6">
+          <Panel>
+
+            <!-- STAGE 0: Animated Opening -->
+            <Border Classes="stageCard" IsVisible="{Binding IsStage0Intro}" Padding="40,36">
+              <StackPanel Spacing="20" HorizontalAlignment="Center">
+                <Border Classes="glowOrb" Width="96" Height="96" HorizontalAlignment="Center">
+                  <Border CornerRadius="999" ClipToBounds="True" Width="68" Height="68" HorizontalAlignment="Center" VerticalAlignment="Center" Background="#050507">
+                    <Image Source="avares://DaoStudio.Desktop/Assets/daostudio-logo.png" Width="56" Height="56" Stretch="Uniform"/>
+                  </Border>
+                </Border>
+                <StackPanel Spacing="8" HorizontalAlignment="Center" MaxWidth="520">
+                  <TextBlock Text="CONFIGURAÇÃO DE AMBIENTE" Classes="caption" HorizontalAlignment="Center" Foreground="#34D399"/>
+                  <TextBlock Text="Monte seu fluxo de tradução" FontSize="24" FontWeight="SemiBold" HorizontalAlignment="Center" TextAlignment="Center" Foreground="#F4F4F6"/>
+                  <TextBlock Text="Em 3 perguntas rápidas, conectamos o universo, o nível de assistência e o workspace ideal para o seu objetivo."
+                             Classes="secondary" FontSize="13.5" TextWrapping="Wrap" TextAlignment="Center"/>
+                </StackPanel>
+                <Button Classes="primary"
+                        Command="{Binding StartWizardCommand}"
+                        HorizontalAlignment="Center"
+                        Padding="22,10"
+                        FontSize="13"
+                        Content="Iniciar configuração"/>
+                <TextBlock Text="Todos os workspaces permanecem acessíveis no menu lateral a qualquer momento."
+                           FontSize="11.5" Foreground="#5C5C6E" HorizontalAlignment="Center" TextAlignment="Center"/>
+              </StackPanel>
+            </Border>
+
+            <!-- STAGE 1: Pergunta 1 - Objetivo -->
+            <Border Classes="stageCard" IsVisible="{Binding IsStage1Intent}">
+              <StackPanel Spacing="18">
+                <StackPanel Spacing="4">
+                  <TextBlock Text="ETAPA 01" Classes="caption" Foreground="#34D399"/>
+                  <TextBlock Text="Qual é o seu objetivo principal?" FontSize="20" FontWeight="SemiBold" Foreground="#F4F4F6"/>
+                  <TextBlock Text="Selecione o ponto de partida para configurar o primeiro nó do pipeline." Classes="secondary" FontSize="13"/>
+                </StackPanel>
+                <Grid ColumnDefinitions="*,12,*" RowDefinitions="Auto,12,Auto">
+                  <Button Grid.Row="0" Grid.Column="0"
+                          Classes="wizardCard"
+                          Classes.wizardCardActive="{Binding IsPlayerIntent}"
+                          HorizontalAlignment="Stretch"
+                          Command="{Binding SelectIntentCommand}"
+                          CommandParameter="player">
+                    <StackPanel Spacing="8">
+                      <Grid ColumnDefinitions="Auto,*">
+                        <TextBlock Grid.Column="0" Text="01" Classes="mono" Foreground="#5C5C6E"/>
+                        <Border Grid.Column="1" Classes="badgeNeutral" HorizontalAlignment="Right">
+                          <TextBlock Text="BRIDGE" Classes="mono" FontSize="10" Foreground="#8E8E9E"/>
+                        </Border>
+                      </Grid>
+                      <TextBlock Text="Jogar em Tempo Real" FontSize="14.5" FontWeight="SemiBold" Foreground="#F4F4F6"/>
+                      <TextBlock Text="Detectar o jogo na Steam, iniciar a bridge local e traduzir diálogos ao vivo." FontSize="12" Classes="secondary" TextWrapping="Wrap"/>
+                    </StackPanel>
+                  </Button>
+
+                  <Button Grid.Row="0" Grid.Column="2"
+                          Classes="wizardCard"
+                          Classes.wizardCardActive="{Binding IsCatIntent}"
+                          HorizontalAlignment="Stretch"
+                          Command="{Binding SelectIntentCommand}"
+                          CommandParameter="cat">
+                    <StackPanel Spacing="8">
+                      <Grid ColumnDefinitions="Auto,*">
+                        <TextBlock Grid.Column="0" Text="02" Classes="mono" Foreground="#5C5C6E"/>
+                        <Border Grid.Column="1" Classes="badgeNeutral" HorizontalAlignment="Right">
+                          <TextBlock Text="CAT" Classes="mono" FontSize="10" Foreground="#8E8E9E"/>
+                        </Border>
+                      </Grid>
+                      <TextBlock Text="Traduzir Jogos (Studio CAT)" FontSize="14.5" FontWeight="SemiBold" Foreground="#F4F4F6"/>
+                      <TextBlock Text="Revisar segmentos com trava de variáveis, glossário canônico e validação de QA." FontSize="12" Classes="secondary" TextWrapping="Wrap"/>
+                    </StackPanel>
+                  </Button>
+
+                  <Button Grid.Row="2" Grid.Column="0"
+                          Classes="wizardCard"
+                          Classes.wizardCardActive="{Binding IsManhuaIntent}"
+                          HorizontalAlignment="Stretch"
+                          Command="{Binding SelectIntentCommand}"
+                          CommandParameter="manhua">
+                    <StackPanel Spacing="8">
+                      <Grid ColumnDefinitions="Auto,*">
+                        <TextBlock Grid.Column="0" Text="03" Classes="mono" Foreground="#5C5C6E"/>
+                        <Border Grid.Column="1" Classes="badgeNeutral" HorizontalAlignment="Right">
+                          <TextBlock Text="SCANLATION" Classes="mono" FontSize="10" Foreground="#8E8E9E"/>
+                        </Border>
+                      </Grid>
+                      <TextBlock Text="Mangás &amp; Manhua" FontSize="14.5" FontWeight="SemiBold" Foreground="#F4F4F6"/>
+                      <TextBlock Text="Controlar orçamento de caracteres por balão e gerar roteiro de typesetting." FontSize="12" Classes="secondary" TextWrapping="Wrap"/>
+                    </StackPanel>
+                  </Button>
+
+                  <Button Grid.Row="2" Grid.Column="2"
+                          Classes="wizardCard"
+                          Classes.wizardCardActive="{Binding IsWebnovelIntent}"
+                          HorizontalAlignment="Stretch"
+                          Command="{Binding SelectIntentCommand}"
+                          CommandParameter="webnovel">
+                    <StackPanel Spacing="8">
+                      <Grid ColumnDefinitions="Auto,*">
+                        <TextBlock Grid.Column="0" Text="04" Classes="mono" Foreground="#5C5C6E"/>
+                        <Border Grid.Column="1" Classes="badgeNeutral" HorizontalAlignment="Right">
+                          <TextBlock Text="LITERÁRIO" Classes="mono" FontSize="10" Foreground="#8E8E9E"/>
+                        </Border>
+                      </Grid>
+                      <TextBlock Text="Webnovels &amp; Lore" FontSize="14.5" FontWeight="SemiBold" Foreground="#F4F4F6"/>
+                      <TextBlock Text="Segmentar capítulos em chinês, preservar termos marciais e exportar bilíngue." FontSize="12" Classes="secondary" TextWrapping="Wrap"/>
+                    </StackPanel>
+                  </Button>
+                </Grid>
+              </StackPanel>
+            </Border>
+
+            <!-- STAGE 2: Pergunta 2 - Universo / Jogo -->
+            <Border Classes="stageCard" IsVisible="{Binding IsStage2Universe}">
+              <StackPanel Spacing="14">
+                <StackPanel Spacing="4">
+                  <TextBlock Text="ETAPA 02" Classes="caption" Foreground="#34D399"/>
+                  <TextBlock Text="{Binding Question2Title}" FontSize="20" FontWeight="SemiBold" Foreground="#F4F4F6" TextWrapping="Wrap"/>
+                  <TextBlock Text="{Binding Question2Subtitle}" Classes="secondary" FontSize="13" TextWrapping="Wrap"/>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" Spacing="6">
+                  <TextBlock Text="Selecionado:" Classes="secondary" FontSize="12"/>
+                  <TextBlock Text="{Binding SelectedGame.DisplayName}" FontSize="12" Foreground="#34D399" FontWeight="SemiBold"/>
+                </StackPanel>
+                <ItemsControl ItemsSource="{Binding AvailableGames}">
+                  <ItemsControl.ItemTemplate>
+                    <DataTemplate x:DataType="contracts:GameProfileManifest">
+                      <Button Classes="wizardCard"
+                              HorizontalAlignment="Stretch"
+                              Margin="0,0,0,8"
+                              Command="{ReflectionBinding DataContext.SelectUniverseCommand, ElementName=TourRoot}"
+                              CommandParameter="{Binding}">
+                        <Grid ColumnDefinitions="*,Auto">
+                          <StackPanel Grid.Column="0" Spacing="4">
+                            <TextBlock Text="{Binding DisplayName}" FontSize="14" FontWeight="SemiBold" Foreground="#F4F4F6"/>
+                            <StackPanel Orientation="Horizontal" Spacing="12">
+                              <TextBlock Text="{Binding Engine}" Classes="mono" FontSize="11.5" Foreground="#34D399"/>
+                              <TextBlock Text="{Binding ExecutableName}" Classes="mono" FontSize="11.5" Foreground="#8E8E9E"/>
+                              <TextBlock Text="{Binding SteamAppId, StringFormat='AppID {0}'}" Classes="mono" FontSize="11.5" Foreground="#5C5C6E"/>
+                            </StackPanel>
+                          </StackPanel>
+                          <Border Grid.Column="1" Classes="badgeNeutral" VerticalAlignment="Center" Margin="12,0,0,0">
+                            <TextBlock Text="{Binding GlossaryVersion, StringFormat='Glossário v{0}'}" Classes="mono" FontSize="11" Foreground="#9494A6"/>
+                          </Border>
+                        </Grid>
+                      </Button>
+                    </DataTemplate>
+                  </ItemsControl.ItemTemplate>
+                </ItemsControl>
+              </StackPanel>
+            </Border>
+
+            <!-- STAGE 3: Pergunta 3 - Profundidade e Regras -->
+            <Border Classes="stageCard" IsVisible="{Binding IsStage3Style}">
+              <StackPanel Spacing="18">
+                <StackPanel Spacing="4">
+                  <TextBlock Text="ETAPA 03" Classes="caption" Foreground="#34D399"/>
+                  <TextBlock Text="{Binding Question3Title}" FontSize="20" FontWeight="SemiBold" Foreground="#F4F4F6" TextWrapping="Wrap"/>
+                  <TextBlock Text="Ajuste o nível de orientação e os pré-ajustes do workspace." Classes="secondary" FontSize="13" TextWrapping="Wrap"/>
+                </StackPanel>
+
+                <Grid ColumnDefinitions="*,12,*">
+                  <Button Grid.Column="0"
+                          Classes="wizardCard"
+                          Classes.wizardCardActive="{Binding IsGuidedLevel}"
+                          HorizontalAlignment="Stretch"
+                          Command="{Binding SelectExperienceLevelCommand}"
+                          CommandParameter="Guiado">
+                    <StackPanel Spacing="8">
+                      <Border Classes="badgeNeutral" HorizontalAlignment="Left">
+                        <TextBlock Text="GUIADO" Classes="mono" FontSize="10" Foreground="#34D399"/>
+                      </Border>
+                      <TextBlock Text="Modo Guiado" FontSize="14.5" FontWeight="SemiBold" Foreground="#F4F4F6"/>
+                      <TextBlock Text="Assistência passo a passo, glossário ativo e exemplos carregados automaticamente." FontSize="12" Classes="secondary" TextWrapping="Wrap"/>
+                    </StackPanel>
+                  </Button>
+
+                  <Button Grid.Column="2"
+                          Classes="wizardCard"
+                          Classes.wizardCardActive="{Binding IsAdvancedLevel}"
+                          HorizontalAlignment="Stretch"
+                          Command="{Binding SelectExperienceLevelCommand}"
+                          CommandParameter="Avancado">
+                    <StackPanel Spacing="8">
+                      <Border Classes="badgeNeutral" HorizontalAlignment="Left">
+                        <TextBlock Text="AVANÇADO" Classes="mono" FontSize="10" Foreground="#9494A6"/>
+                      </Border>
+                      <TextBlock Text="Modo Avançado" FontSize="14.5" FontWeight="SemiBold" Foreground="#F4F4F6"/>
+                      <TextBlock Text="Fluxo direto focado em produtividade, atalhos de revisão e controle fino." FontSize="12" Classes="secondary" TextWrapping="Wrap"/>
+                    </StackPanel>
+                  </Button>
+                </Grid>
+
+                <!-- Ajuste contextual para Scanlation Manhua -->
+                <Border Classes="metric" IsVisible="{Binding IsManhuaIntent}" Padding="14">
+                  <StackPanel Spacing="10">
+                    <TextBlock Text="ORÇAMENTO POR BALÃO (MANHUA)" Classes="caption"/>
+                    <StackPanel Orientation="Horizontal" Spacing="8">
+                      <Button Classes="chip" Classes.chipActive="{Binding IsBubbleCompact}" Command="{Binding SelectBubblePresetCommand}" CommandParameter="42" Content="42 chars · Compacto"/>
+                      <Button Classes="chip" Classes.chipActive="{Binding IsBubbleStandard}" Command="{Binding SelectBubblePresetCommand}" CommandParameter="55" Content="55 chars · Padrão"/>
+                      <Button Classes="chip" Classes.chipActive="{Binding IsBubbleWide}" Command="{Binding SelectBubblePresetCommand}" CommandParameter="75" Content="75 chars · Largo"/>
+                      <TextBox Text="{Binding CustomBubbleMaxChars}" Width="64" VerticalContentAlignment="Center"/>
+                    </StackPanel>
+                  </StackPanel>
+                </Border>
+
+                <StackPanel Spacing="8">
+                  <CheckBox IsChecked="{Binding AutoLoadSamples}" Content="Pré-carregar amostras e glossário canônico do universo"/>
+                  <CheckBox IsChecked="{Binding AutoGenerateBilingualPreview}"
+                            IsVisible="{Binding IsManhuaIntent}"
+                            Content="Gerar roteiro de typesetting / prévia bilíngue automaticamente"/>
+                  <CheckBox IsChecked="{Binding AutoGenerateBilingualPreview}"
+                            IsVisible="{Binding IsWebnovelIntent}"
+                            Content="Gerar prévia bilíngue ZH + PT-BR automaticamente"/>
+                </StackPanel>
+
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
+                  <Button Classes="primary"
+                          Command="{Binding ChooseStyleAndAdvanceCommand}"
+                          Content="Concluir montagem"/>
+                </StackPanel>
+              </StackPanel>
+            </Border>
+
+            <!-- STAGE 4: Fluxo Montado / Resumo -->
+            <Border Classes="stageCard" IsVisible="{Binding IsStage4Blueprint}">
+              <StackPanel Spacing="18">
+                <StackPanel Spacing="4">
+                  <TextBlock Text="ESPECIFICAÇÃO CONCLUÍDA" Classes="caption" Foreground="#34D399"/>
+                  <TextBlock Text="Seu fluxo personalizado está pronto" FontSize="20" FontWeight="SemiBold" Foreground="#F4F4F6"/>
+                  <TextBlock Text="Configuração consolidada para os 4 nós do seu ambiente:" Classes="secondary" FontSize="13"/>
+                </StackPanel>
+
+                <Grid ColumnDefinitions="*,10,*,10,*,10,*">
+                  <Border Grid.Column="0" Classes="pipelineNodeActive">
+                    <StackPanel Spacing="4">
+                      <TextBlock Text="01 OBJETIVO" Classes="caption" Foreground="#34D399"/>
+                      <TextBlock Text="{Binding PipelineNode1Text}" FontSize="12.5" FontWeight="SemiBold" Foreground="#F4F4F6" TextWrapping="Wrap"/>
+                    </StackPanel>
+                  </Border>
+                  <Border Grid.Column="2" Classes="pipelineNodeActive">
+                    <StackPanel Spacing="4">
+                      <TextBlock Text="02 UNIVERSO" Classes="caption" Foreground="#34D399"/>
+                      <TextBlock Text="{Binding PipelineNode2Text}" FontSize="12.5" FontWeight="SemiBold" Foreground="#F4F4F6" TextWrapping="Wrap"/>
+                    </StackPanel>
+                  </Border>
+                  <Border Grid.Column="4" Classes="pipelineNodeActive">
+                    <StackPanel Spacing="4">
+                      <TextBlock Text="03 ESTILO" Classes="caption" Foreground="#34D399"/>
+                      <TextBlock Text="{Binding PipelineNode3Text}" FontSize="12.5" FontWeight="SemiBold" Foreground="#F4F4F6" TextWrapping="Wrap"/>
+                    </StackPanel>
+                  </Border>
+                  <Border Grid.Column="6" Classes="pipelineNodeActive">
+                    <StackPanel Spacing="4">
+                      <TextBlock Text="04 WORKSPACE" Classes="caption" Foreground="#34D399"/>
+                      <TextBlock Text="{Binding PipelineNode4Text}" FontSize="12.5" FontWeight="SemiBold" Foreground="#F4F4F6" TextWrapping="Wrap"/>
+                    </StackPanel>
+                  </Border>
+                </Grid>
+
+                <Border Classes="metric" Padding="16">
+                  <StackPanel Spacing="6">
+                    <TextBlock Text="{Binding RecommendedModuleName, StringFormat='Workspace de destino: {0}'}" FontSize="13.5" FontWeight="SemiBold" Foreground="#34D399"/>
+                    <TextBlock Text="{Binding InferredExperienceDescription}" Classes="secondary" TextWrapping="Wrap" FontSize="12.5"/>
+                  </StackPanel>
+                </Border>
+
+                <StackPanel Orientation="Horizontal" Spacing="10">
+                  <Button Classes="primary"
+                          Command="{Binding ApplyAndStartCommand}"
+                          Content="{Binding PrimaryActionButtonText}"/>
+                  <Button Command="{Binding ResetTourCommand}"
+                          Content="Redefinir"/>
+                </StackPanel>
+              </StackPanel>
+            </Border>
+
+          </Panel>
+        </Border>
+      </ScrollViewer>
+
+      <!-- Bottom Live Pipeline Assembly Strip + Step Controls -->
+      <StackPanel Grid.Row="2" Spacing="12" Margin="0,18,0,0">
+        <TextBlock Text="PIPELINE EM MONTAGEM" Classes="caption"/>
+
+        <Grid ColumnDefinitions="*,Auto,*,Auto,*,Auto,*">
+          <Border Grid.Column="0" Classes="pipelineNode" Classes.pipelineNodeActive="{Binding IsNode1Active}">
+            <Button Background="Transparent" BorderThickness="0" Padding="0" HorizontalAlignment="Stretch" HorizontalContentAlignment="Left"
+                    Command="{Binding JumpToStageCommand}" CommandParameter="1">
+              <StackPanel Orientation="Horizontal" Spacing="8">
+                <Border Classes="statusDotApproved" Width="6" Height="6" IsVisible="{Binding IsNode1Active}"/>
+                <Border Classes="statusDotPending" Width="6" Height="6" IsVisible="{Binding !IsNode1Active}"/>
+                <TextBlock Text="{Binding PipelineNode1Text}" FontSize="12" FontWeight="SemiBold" TextTrimming="CharacterEllipsis"/>
+              </StackPanel>
+            </Button>
+          </Border>
+          <Border Grid.Column="1" Height="1" Width="16" Background="#1E1E2A" VerticalAlignment="Center" Margin="6,0"/>
+
+          <Border Grid.Column="2" Classes="pipelineNode" Classes.pipelineNodeActive="{Binding IsNode2Active}">
+            <Button Background="Transparent" BorderThickness="0" Padding="0" HorizontalAlignment="Stretch" HorizontalContentAlignment="Left"
+                    Command="{Binding JumpToStageCommand}" CommandParameter="2">
+              <StackPanel Orientation="Horizontal" Spacing="8">
+                <Border Classes="statusDotApproved" Width="6" Height="6" IsVisible="{Binding IsNode2Active}"/>
+                <Border Classes="statusDotPending" Width="6" Height="6" IsVisible="{Binding !IsNode2Active}"/>
+                <TextBlock Text="{Binding PipelineNode2Text}" FontSize="12" FontWeight="SemiBold" TextTrimming="CharacterEllipsis"/>
+              </StackPanel>
+            </Button>
+          </Border>
+          <Border Grid.Column="3" Height="1" Width="16" Background="#1E1E2A" VerticalAlignment="Center" Margin="6,0"/>
+
+          <Border Grid.Column="4" Classes="pipelineNode" Classes.pipelineNodeActive="{Binding IsNode3Active}">
+            <Button Background="Transparent" BorderThickness="0" Padding="0" HorizontalAlignment="Stretch" HorizontalContentAlignment="Left"
+                    Command="{Binding JumpToStageCommand}" CommandParameter="3">
+              <StackPanel Orientation="Horizontal" Spacing="8">
+                <Border Classes="statusDotApproved" Width="6" Height="6" IsVisible="{Binding IsNode3Active}"/>
+                <Border Classes="statusDotPending" Width="6" Height="6" IsVisible="{Binding !IsNode3Active}"/>
+                <TextBlock Text="{Binding PipelineNode3Text}" FontSize="12" FontWeight="SemiBold" TextTrimming="CharacterEllipsis"/>
+              </StackPanel>
+            </Button>
+          </Border>
+          <Border Grid.Column="5" Height="1" Width="16" Background="#1E1E2A" VerticalAlignment="Center" Margin="6,0"/>
+
+          <Border Grid.Column="6" Classes="pipelineNode" Classes.pipelineNodeActive="{Binding IsNode4Active}">
+            <Button Background="Transparent" BorderThickness="0" Padding="0" HorizontalAlignment="Stretch" HorizontalContentAlignment="Left"
+                    Command="{Binding JumpToStageCommand}" CommandParameter="4">
+              <StackPanel Orientation="Horizontal" Spacing="8">
+                <Border Classes="statusDotApproved" Width="6" Height="6" IsVisible="{Binding IsNode4Active}"/>
+                <Border Classes="statusDotPending" Width="6" Height="6" IsVisible="{Binding !IsNode4Active}"/>
+                <TextBlock Text="{Binding PipelineNode4Text}" FontSize="12" FontWeight="SemiBold" TextTrimming="CharacterEllipsis"/>
+              </StackPanel>
+            </Button>
+          </Border>
+        </Grid>
+
+        <Grid ColumnDefinitions="Auto,*,Auto">
+          <Button Grid.Column="0" Classes="chip" IsEnabled="{Binding CanGoBack}" Command="{Binding PreviousStageCommand}" Content="Anterior"/>
+          <TextBlock Grid.Column="1" Text="{Binding TourStatusMessage}" FontSize="11.5" Foreground="#5C5C6E" VerticalAlignment="Center" HorizontalAlignment="Center" TextTrimming="CharacterEllipsis" Margin="12,0"/>
+          <Button Grid.Column="2" Classes="chip" IsVisible="{Binding CanGoNext}" Command="{Binding NextStageCommand}" Content="Avançar"/>
+        </Grid>
+      </StackPanel>
+
+    </Grid>
+  </Border>
+</UserControl>

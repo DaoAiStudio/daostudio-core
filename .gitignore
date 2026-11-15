@@ -1,0 +1,8 @@
+bin/
+obj/
+.vs/
+TestResults/
+releases/
+*.user
+*.suo
+.alethe/
